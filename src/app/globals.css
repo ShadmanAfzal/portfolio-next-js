@@ -1,21 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  .text-outline {
+    -webkit-text-stroke: 1px #ffffff;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: theme('colors.transparent');
+    border-radius: 20px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: theme('colors.primary');
+    border-radius: 20px;
+    border: 2px solid #1e293b;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.primary');
+  }
 }
