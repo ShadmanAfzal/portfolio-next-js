@@ -16,6 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <link rel='icon' href='/favicon.ico' sizes='any' />
       <body className='bg-background'>
         <MenuProvider>
           <div className='bg-background min-h-screen w-screen font-primary'>
