@@ -6,16 +6,21 @@ import { AiOutlineLoading } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { IoCall } from 'react-icons/io5';
 import { MdAlternateEmail, MdLocationPin } from 'react-icons/md';
+import saveContactInfoToDB from '../actions/saveContactInfo';
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    console.log(formData);
+
     setIsLoading(true);
+
+    await saveContactInfoToDB(formData);
+
+    setIsLoading(false);
   };
 
   return (
@@ -36,34 +41,44 @@ export default function Contact() {
           <form className='flex flex-col gap-4 mt-4' onSubmit={onFormSubmit}>
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
+                name='firstname'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Firstname'
                 required
+                autoComplete='off'
               />
               <input
+                name='lastname'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Lastname'
                 required
+                autoComplete='off'
               />
             </div>
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
+                name='email'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Email Address'
                 required
                 type='email'
+                autoComplete='off'
               />
               <input
+                name='phone'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Phone Number'
+                autoComplete='off'
               />
             </div>
             <div className='flex md:flex-row flex-col gap-4'>
               <textarea
+                name='message'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none resize-none'
                 placeholder='Please type for message...'
                 required
                 rows={5}
+                autoComplete='off'
               />
             </div>
             <div className='flex justify-center md:justify-start'>

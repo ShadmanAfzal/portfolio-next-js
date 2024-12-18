@@ -56,7 +56,7 @@ export default function Navigation() {
 
   return (
     <div
-      className='absolute left-0 right-0 top-0 z-20 h-screen w-screen overscroll-none bg-black/30'
+      className='absolute left-0 right-0 top-0 z-20 h-screen overscroll-none bg-black/30'
       onClick={() => closeMenu()}
     >
       <div
