@@ -3,6 +3,7 @@ import './globals.css';
 import { MenuProvider } from '@/state/menuContext';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -27,6 +28,7 @@ export default function RootLayout({
             </div>
           </div>
         </MenuProvider>
+        <Analytics />
       </body>
     </html>
   );
