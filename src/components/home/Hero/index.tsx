@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
         </div>
         <div className='flex flex-col lg:flex-row gap-4 my-2 items-center'>
           <a
-            href='./shadman_afzal_resume.pdf'
+            href='/shadman_afzal_resume.pdf'
             className='px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-200 uppercase font-semibold text-sm active:scale-95'
             download
           >
