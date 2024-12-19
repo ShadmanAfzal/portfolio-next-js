@@ -86,6 +86,7 @@ export default function Contact() {
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Phone Number'
                 autoComplete='off'
+                type='number'
               />
             </div>
             <div className='flex md:flex-row flex-col gap-4'>
