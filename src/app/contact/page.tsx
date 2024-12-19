@@ -6,10 +6,18 @@ import { AiOutlineLoading } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { IoCall } from 'react-icons/io5';
 import { MdAlternateEmail, MdLocationPin } from 'react-icons/md';
+import { toast } from 'react-toastify';
+
 import saveContactInfoToDB from '../actions/saveContactInfo';
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const showToast = (message: string, type: 'success' | 'error') => {
+    if (type === 'success') return toast.success(message);
+
+    return toast.error(message);
+  };
 
   const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -18,9 +26,13 @@ export default function Contact() {
 
     setIsLoading(true);
 
-    await saveContactInfoToDB(formData);
+    const result = await saveContactInfoToDB(formData);
 
     setIsLoading(false);
+
+    // event.currentTarget.res;
+
+    return showToast(result.message, result.success ? 'success' : 'error');
   };
 
   return (

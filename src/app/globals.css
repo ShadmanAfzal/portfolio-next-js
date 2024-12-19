@@ -5,6 +5,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --toastify-toast-min-height: 30px;
+    --toastify-color-success: theme('colors.primary');
+    --toastify-color-error: theme('colors.red.700');
+    --toastify-toast-padding: 10px;
+    --toastify-text-color-success: theme('colors.background');
+    --toastify-toast-width: max-content;
+    --toastify-font-family: 'Reddit Mono';
+  }
   .text-outline {
     -webkit-text-stroke: 1px #ffffff;
   }
