@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { IoCall } from 'react-icons/io5';
@@ -12,6 +12,7 @@ import saveContactInfoToDB from '../actions/saveContactInfo';
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const showToast = (message: string, type: 'success' | 'error') => {
     if (type === 'success') return toast.success(message);
@@ -30,9 +31,9 @@ export default function Contact() {
 
     setIsLoading(false);
 
-    // event.currentTarget.res;
+    formRef.current?.reset();
 
-    return showToast(result.message, result.success ? 'success' : 'error');
+    showToast(result.message, result.success ? 'success' : 'error');
   };
 
   return (
@@ -50,7 +51,11 @@ export default function Contact() {
             Reach out, and let&apos;s explore how we can create something
             exceptional together.
           </div>
-          <form className='flex flex-col gap-4 mt-4' onSubmit={onFormSubmit}>
+          <form
+            className='flex flex-col gap-4 mt-4'
+            onSubmit={onFormSubmit}
+            ref={formRef}
+          >
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
                 name='firstname'
