@@ -46,7 +46,25 @@ const projects: ProjectType[] = [
     description:
       'A prototype for a large-scale event-driven notification service built with Node.js (Express.js). It handles events like user likes or comments on posts, leveraging Kafka for event production and consumption to ensure efficient and scalable notification delivery. Designed as a proof of concept for robust system architecture.',
     image: '/images/notification_design.png',
-    tech: ['Node.js', 'Docker', 'Typescript', 'Prisma', 'Zod'],
+    tech: ['Node.js', 'Docker', 'Typescript', 'Prisma', 'Zod', 'Kafka'],
+  },
+  {
+    number: '03',
+    title: 'Library Book Management Application',
+    description:
+      'A modern Library Book Management System built with Node.js and React.js, designed for seamless user experience and efficient book tracking. The application is compiled using Webpack for optimized performance. Authentication is securely handled using Google OAuth 2.0, allowing users to sign in effortlessly with their Google accounts.',
+    image: '/images/library-fullstack-application.png',
+    link: 'https://github.com/ShadmanAfzal/Full-Stack-Library-Application',
+    tech: [
+      'Node.js',
+      'React.js',
+      'Sequelize',
+      'Passport.js',
+      'Formik',
+      'Bootstrap',
+      'Webpack',
+      'Docker',
+    ],
   },
 ];
 
@@ -90,7 +108,7 @@ export default function Project() {
             <div className='text-6xl font-extrabold leading-none text-transparent text-outline'>
               {curentProject.number}
             </div>
-            <div className='text-3xl text-white font-bold'>
+            <div className='text-3xl text-white font-bold hover:text-primary'>
               <a
                 href={curentProject.link}
                 target='_blank'
@@ -112,7 +130,6 @@ export default function Project() {
             onSlideChange={onSlideChange}
             onBeforeInit={onInit}
             className='h-[200px] lg:h-[300px] w-full lg:w-[50%] bg-card'
-            allowTouchMove={false}
           >
             {projects.map((project, idx) => {
               return (
