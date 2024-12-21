@@ -129,6 +129,7 @@ export default function Project() {
             spaceBetween={50}
             onSlideChange={onSlideChange}
             onBeforeInit={onInit}
+            allowTouchMove={false}
             className='h-[200px] lg:h-[300px] w-full lg:w-[50%] bg-card'
           >
             {projects.map((project, idx) => {
