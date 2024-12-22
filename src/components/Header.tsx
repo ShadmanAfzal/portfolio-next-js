@@ -55,6 +55,7 @@ const Header: React.FC = () => {
                 key={idx}
                 onClick={() => toggleTab(link.path)}
                 name={link.label}
+                aria-label={link.label}
                 className={
                   currentPath === link.path ? 'text-primary' : undefined
                 }
@@ -75,11 +76,16 @@ const Header: React.FC = () => {
         <button
           className='rounded-full bg-primary px-4 text-background font-semibold text-sm'
           onClick={() => router.push(NAVIGATION_PATH.CONTACT)}
+          aria-label='Hire me'
         >
           Hire Me
         </button>
       </div>
-      <button className='lg:hidden text-primary' onClick={toggleMenu}>
+      <button
+        className='lg:hidden text-primary'
+        onClick={toggleMenu}
+        aria-label='Open navigation menu'
+      >
         <IoMenu size={30} />
       </button>
     </div>

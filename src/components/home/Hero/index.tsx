@@ -6,22 +6,26 @@ import { SiGmail } from 'react-icons/si';
 import ProfileImage from './ProfileImage';
 
 const Hero: React.FC = () => {
-  const socialLinks: { href: string; logo: IconType }[] = [
+  const socialLinks: { href: string; logo: IconType; ariaLabel: string }[] = [
     {
       href: 'https://github.com/ShadmanAfzal/',
       logo: LuGithub,
+      ariaLabel: 'View my GitHub account',
     },
     {
       href: 'https://www.linkedin.com/in/shadman-afzal',
       logo: FaLinkedinIn,
+      ariaLabel: 'View my Linkedin profile',
     },
     {
       href: 'https://x.com/JustinKhan123',
       logo: FaXTwitter,
+      ariaLabel: 'Follow me on X',
     },
     {
       href: 'mailto:shadmana.afzal.7@gmail.com',
       logo: SiGmail,
+      ariaLabel: 'Message me on Gmail',
     },
   ];
 
@@ -45,6 +49,7 @@ const Hero: React.FC = () => {
             href='/shadman_afzal_resume.pdf'
             className='px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-200 uppercase font-semibold text-sm active:scale-95'
             download
+            aria-label='Download my CV'
           >
             <div className='flex gap-2 items-center'>Download CV</div>
           </a>
@@ -57,6 +62,7 @@ const Hero: React.FC = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                   className='w-8 h-8 flex justify-center items-center rounded-full border border-primary text-primary text-center hover:bg-primary hover:text-background transition-all duration-200'
+                  aria-label={link.ariaLabel}
                 >
                   <link.logo size={18} />
                 </a>

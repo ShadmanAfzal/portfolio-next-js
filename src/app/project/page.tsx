@@ -158,6 +158,7 @@ export default function Project() {
             data-tooltip-id='link'
             data-tooltip-content={!canMoveLeft ? null : 'Previous'}
             data-tooltip-place='top'
+            aria-label='View previous project'
           >
             <MdOutlineNavigateBefore size={20} />
           </button>
@@ -168,6 +169,7 @@ export default function Project() {
             data-tooltip-id='link'
             data-tooltip-content={!canMoveRight ? null : 'Next'}
             data-tooltip-place='top'
+            aria-label='View next project'
           >
             <MdOutlineNavigateNext size={20} />
           </button>

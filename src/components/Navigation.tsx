@@ -64,7 +64,11 @@ export default function Navigation() {
         onClick={(event) => event.stopPropagation()}
       >
         <div className='flex items-end justify-end self-end'>
-          <button onClick={closeMenu} className='text-2xl text-primary'>
+          <button
+            onClick={closeMenu}
+            className='text-2xl text-primary'
+            aria-label='Close navigation menu'
+          >
             <IoMdClose size={30} />
           </button>
         </div>

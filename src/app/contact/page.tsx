@@ -103,6 +103,7 @@ export default function Contact() {
               <button
                 className='rounded-full bg-primary text-background font-semibold text-sm active:scale-95 transition-all duration-200 h-8 w-52'
                 disabled={isLoading}
+                aria-label='submit'
               >
                 {isLoading ? (
                   <div className='flex justify-center items-center gap-2'>
