@@ -66,7 +66,7 @@ const Header: React.FC = () => {
         </div>
         <Link
           className='rounded-full bg-primary px-4 text-background font-semibold text-sm py-1.5'
-          aria-label="Let\'s Connect"
+          aria-label="Let's Connect"
           href={NAVIGATION_PATH.CONTACT}
         >
           <span>Let&apos;s Connect</span>
