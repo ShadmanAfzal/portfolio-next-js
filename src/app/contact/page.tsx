@@ -92,7 +92,7 @@ export default function Contact() {
               <textarea
                 name='message'
                 className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none resize-none'
-                placeholder='Please type for message...'
+                placeholder='Please enter your message...'
                 required
                 rows={5}
                 autoComplete='off'
