@@ -2,6 +2,7 @@
 
 import moment from 'moment';
 import CountUp from 'react-countup';
+import { twMerge } from 'tailwind-merge';
 
 const Stats = () => {
   const now = moment();
@@ -45,9 +46,10 @@ const Stats = () => {
             />
             <div>
               <p
-                className={`${
+                className={twMerge(
+                  'leading-snug text-white/80',
                   stat.text.length < 15 ? 'max-w-[100px]' : 'max-w-[150px]'
-                } leading-snug text-white/80`}
+                )}
               >
                 {stat.text}
               </p>

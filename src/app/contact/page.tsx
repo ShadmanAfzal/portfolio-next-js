@@ -48,8 +48,7 @@ export default function Contact() {
         <div className='bg-card rounded-md py-4 px-5 w-full lg:w-[55%]'>
           <div className='text-2xl text-primary pb-2'>Lets Connect</div>
           <div className='text-white/80 leading-relaxed'>
-            Reach out, and let&apos;s explore how we can create something
-            exceptional together.
+            Let&apos;s explore how we can create something exceptional together.
           </div>
           <form
             className='flex flex-col gap-4 mt-4'
