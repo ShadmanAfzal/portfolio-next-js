@@ -9,6 +9,7 @@ import { MdAlternateEmail, MdLocationPin } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 import saveContactInfoToDB from '../actions/saveContactInfo';
+import { Geolocation } from '@/types/geolocation';
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -27,13 +28,35 @@ export default function Contact() {
 
     setIsLoading(true);
 
-    const result = await saveContactInfoToDB(formData);
+    const geolocation = await fetchGeoLocation();
+
+    const result = await saveContactInfoToDB(formData, geolocation);
 
     setIsLoading(false);
 
     formRef.current?.reset();
 
     showToast(result.message, result.success ? 'success' : 'error');
+  };
+
+  const fetchGeoLocation = async (): Promise<Geolocation | null> => {
+    try {
+      const response = await fetch('https://geolocation-db.com/json/');
+      const geolocation = await response.json();
+      return {
+        country: {
+          code: geolocation.country_code,
+          name: geolocation.country_name,
+        },
+        city: geolocation.city,
+        zipCode: geolocation.postal,
+        coordinates: [geolocation.latitude, geolocation.longitude],
+        state: geolocation.state,
+      };
+    } catch (error) {
+      console.log('Error occured while fetching geolocation detail', error);
+      return null;
+    }
   };
 
   return (

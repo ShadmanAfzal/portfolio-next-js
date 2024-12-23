@@ -1,23 +1,31 @@
 'use server';
 
 import { connectToDatabase } from '@/lib/mongodb';
+import { ContactMessage } from '@/types/contactMessage';
+import { Geolocation } from '@/types/geolocation';
+import { Filter } from 'bad-words';
 
-export default async function saveContactInfoToDB(formData: FormData) {
+export default async function saveContactInfoToDB(
+  formData: FormData,
+  geolocation: Geolocation | null
+) {
   try {
     const { db } = await connectToDatabase();
 
+    const filter = new Filter();
+
     const contactInfo = await db.createCollection('contactInfo');
 
-    const messageObj = {
-      firstName: formData.get('firstname'),
-      lastName: formData.get('lastname'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      message: formData.get('message'),
-      submittedOn: new Date(),
-    };
+    const messageObj = Object.fromEntries(formData.entries()) as ContactMessage;
 
-    await contactInfo.insertOne(messageObj);
+    const containsBadWord = filter.isProfane(messageObj.message);
+
+    if (!containsBadWord)
+      await contactInfo.insertOne({
+        ...messageObj,
+        location: geolocation,
+        submittedOn: new Date(),
+      });
 
     return {
       success: true,
