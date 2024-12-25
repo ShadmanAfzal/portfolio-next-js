@@ -1,15 +1,9 @@
-import type { Metadata } from 'next';
 import './globals.css';
 import { MenuProvider } from '@/state/menuContext';
 import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastContainer } from 'react-toastify';
-
-export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Shadman Afzal Portfolio',
-};
 
 export default function RootLayout({
   children,
@@ -19,6 +13,31 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <link rel='icon' href='/favicon.ico' sizes='any' />
+      <meta property='og:title' content='Shadman Afzal | Fullstack Developer' />
+      <meta
+        property='og:description'
+        content='Experienced Fullstack Developer specializing in crafting efficient and scalable web solutions using Node.js, React, AWS, and modern web technologies. Explore my portfolio to discover projects showcasing my expertise in backend systems, frontend designs, and cloud-based solutions.'
+      />
+      <meta
+        property='og:image'
+        content='https://shadmanafzal.in/images/homepage.png'
+      />
+      <meta property='og:url' content='https://shadmanafzal.in/' />
+      <meta property='og:type' content='website' />
+
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta
+        name='twitter:title'
+        content='Shadman Afzal | Fullstack Developer'
+      />
+      <meta
+        name='twitter:description'
+        content='Experienced Fullstack Developer specializing in crafting efficient and scalable web solutions using Node.js, React, AWS, and modern web technologies. Explore my portfolio to discover projects showcasing my expertise in backend systems, frontend designs, and cloud-based solutions.'
+      />
+      <meta
+        name='twitter:image'
+        content='https://shadmanafzal.in/images/homepage.png'
+      />
       <body className='bg-background'>
         <MenuProvider>
           <ToastContainer
