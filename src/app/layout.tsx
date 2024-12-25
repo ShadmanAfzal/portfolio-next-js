@@ -4,6 +4,16 @@ import Header from '@/components/Header';
 import Navigation from '@/components/Navigation';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastContainer } from 'react-toastify';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Shadman Afzal | Fullstack Developer',
+  description:
+    'Experienced Fullstack Developer specializing in crafting efficient and scalable web solutions using Node.js, React, AWS, and modern web technologies. Explore my portfolio to discover projects showcasing my expertise in backend systems, frontend designs, and cloud-based solutions.',
+  authors: {
+    name: 'Shadman Afzal',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -20,11 +30,14 @@ export default function RootLayout({
       />
       <meta
         property='og:image'
-        content='https://shadmanafzal.in/images/homepage.png'
+        content={`${process.env.DOMAIN}/images/homepage.png`}
       />
-      <meta property='og:url' content='https://shadmanafzal.in/' />
+      <meta property='og:url' content={process.env.DOMAIN} />
       <meta property='og:type' content='website' />
-
+      <meta
+        property='og:site_name'
+        content='Shadman Afzal | Fullstack Developer'
+      />
       <meta name='twitter:card' content='summary_large_image' />
       <meta
         name='twitter:title'
@@ -36,7 +49,7 @@ export default function RootLayout({
       />
       <meta
         name='twitter:image'
-        content='https://shadmanafzal.in/images/homepage.png'
+        content={`${process.env.DOMAIN}/images/homepage.png`}
       />
       <body className='bg-background'>
         <MenuProvider>
