@@ -2,10 +2,10 @@
 
 import { useMenu } from '@/state/menuContext';
 import { NAVIGATION_PATH } from '../config/navigationPath';
-import { IoMenu } from 'react-icons/io5';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
+import { FaBurger } from 'react-icons/fa6';
 
 type NavLinkProps = {
   label: string;
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
         onClick={toggleMenu}
         aria-label='Open navigation menu'
       >
-        <IoMenu size={30} />
+        <FaBurger size={30} />
       </button>
     </div>
   );
