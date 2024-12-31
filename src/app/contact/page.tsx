@@ -123,7 +123,7 @@ export default function Contact() {
             </div>
             <div className='flex justify-center md:justify-start'>
               <button
-                className='rounded-full bg-primary text-background font-semibold text-sm active:scale-95 transition-all duration-200 h-8 w-52'
+                className='rounded-full bg-primary text-background font-semibold text-sm active:scale-95 transition-all duration-200 ease-in-out h-8 w-52'
                 disabled={isLoading}
                 aria-label='submit'
               >
@@ -150,15 +150,14 @@ export default function Contact() {
             </div>
             <div className='flex flex-col justify-center gap-2'>
               <div className='text-white/80 leading-tight'>Phone</div>
-              <div className='text-white'>
-                <a
-                  target='_blank'
-                  href='tel:+919650560450'
-                  rel='noopener noreferrer'
-                >
-                  +91 9650560450
-                </a>
-              </div>
+              <a
+                target='_blank'
+                href='tel:+919650560450'
+                rel='noopener noreferrer'
+                className='text-white'
+              >
+                +91 9650560450
+              </a>
             </div>
           </div>
           <div className='flex gap-4'>
@@ -167,15 +166,14 @@ export default function Contact() {
             </div>
             <div className='flex flex-col justify-center gap-2'>
               <div className='text-white/80 leading-tight'>Email</div>
-              <div className='text-white'>
-                <a
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  href='mailto:shadman.afzal.7@gmail.com'
-                >
-                  shdman.afzal.7@gmail.com
-                </a>
-              </div>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='mailto:shadman.afzal.7@gmail.com'
+                className='text-white'
+              >
+                shadman.afzal.7@gmail.com
+              </a>
             </div>
           </div>
           <div className='flex gap-4'>
@@ -193,15 +191,14 @@ export default function Contact() {
             </div>
             <div className='flex flex-col justify-center gap-2'>
               <div className='text-white/80 leading-tight'>LinkedIn</div>
-              <div className='text-white'>
-                <a
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  href='https://www.linkedin.com/in/shadman-afzal'
-                >
-                  linkedin/shadman-afzal
-                </a>
-              </div>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://www.linkedin.com/in/shadman-afzal'
+                className='text-white'
+              >
+                linkedin/shadman-afzal
+              </a>
             </div>
           </div>
         </div>

@@ -4,7 +4,6 @@ import { useMenu } from '@/state/menuContext';
 import { NAVIGATION_PATH } from '../config/navigationPath';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
 import { FaBurger } from 'react-icons/fa6';
 
 type NavLinkProps = {
@@ -34,11 +33,11 @@ const Header: React.FC = () => {
   return (
     <div className='py-8 flex justify-between'>
       <Link
-        className='text-white text-2xl font-semibold flex gap-1 cursor-pointer select-none'
+        className='text-white text-2xl font-semibold cursor-pointer select-none'
         href={NAVIGATION_PATH.HOME}
       >
         <span>Shadman</span>
-        <span className='text-primary'>Afzal</span>
+        <span className='text-primary'> Afzal</span>
       </Link>
       <div className='lg:flex lg:gap-8 items-center hidden'>
         <div className='flex gap-8 text-white'>
@@ -47,25 +46,18 @@ const Header: React.FC = () => {
               <Link
                 key={idx}
                 href={link.path}
-                className={currentPath === link.path ? 'text-primary' : ''}
+                className={
+                  currentPath === link.path ? 'text-primary' : undefined
+                }
                 aria-label={link.label}
               >
-                <div
-                  className={twMerge(
-                    'hover:text-primary border-b-2 pb-0.5',
-                    currentPath === link.path
-                      ? 'border-b-primary'
-                      : 'border-b-transparent'
-                  )}
-                >
-                  {link.label}
-                </div>
+                <div className='hover:text-primary'>{link.label}</div>
               </Link>
             );
           })}
         </div>
         <Link
-          className='rounded-full bg-primary px-4 text-background font-semibold text-sm py-1.5'
+          className='rounded-full bg-primary px-4 text-background font-semibold text-sm py-1.5 active:scale-95 transition-all duration-200 ease-in-out'
           aria-label="Let's Connect"
           href={NAVIGATION_PATH.CONTACT}
         >
@@ -73,7 +65,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <button
-        className='lg:hidden text-primary'
+        className='lg:hidden text-primary active:scale-95 transition-all duration-200 ease-in-out'
         onClick={toggleMenu}
         aria-label='Open navigation menu'
       >

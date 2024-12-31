@@ -44,7 +44,7 @@ const projects: ProjectType[] = [
     title: 'Real-Time Notification System',
     link: 'https://github.com/ShadmanAfzal/notification-system-design',
     description:
-      'A prototype for a large-scale event-driven notification service built with Node.js (Express.js). It handles events like user likes or comments on posts, leveraging Kafka for event production and consumption to ensure efficient and scalable notification delivery. Designed as a proof of concept for robust system architecture.',
+      'A prototype event-driven notification service built with Node.js (Express.js) uses Kafka for scalable event handling, processing user likes and comments efficiently. Designed as a proof of concept for robust architecture.',
     image: '/images/notification_design.png',
     tech: ['Node.js', 'Docker', 'Typescript', 'Prisma', 'Zod', 'Kafka'],
   },
@@ -52,7 +52,7 @@ const projects: ProjectType[] = [
     number: '03',
     title: 'Library Book Management Application',
     description:
-      'A modern Library Book Management System built with Node.js and React.js, designed for seamless user experience and efficient book tracking. The application is compiled using Webpack for optimized performance. Authentication is securely handled using Google OAuth 2.0, allowing users to sign in effortlessly with their Google accounts.',
+      'A modern library management system built with Node.js and React.js ensures seamless book tracking and optimized performance using Webpack. Secure Google OAuth 2.0 enables effortless user authentication.',
     image: '/images/library-fullstack-application.png',
     link: 'https://github.com/ShadmanAfzal/Full-Stack-Library-Application',
     tech: [
