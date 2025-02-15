@@ -23,7 +23,7 @@ const Stats = () => {
       text: 'Technologies mastered',
     },
     {
-      count: 950,
+      count: 968,
       text: 'Total Commits',
     },
   ];
