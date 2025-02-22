@@ -40,8 +40,6 @@ async function getAllRepos() {
 }
 
 async function getTotalCommitsForRepo(owner: string, repo: string) {
-  console.log(`Fetching commits for repository: ${repo}`);
-
   let totalCommits = 0;
   let page = 1;
 
@@ -74,8 +72,6 @@ async function getTotalCommitsForRepo(owner: string, repo: string) {
       );
     }
   }
-
-  console.log(`Total commits for ${repo}: ${totalCommits}`);
 
   return totalCommits;
 }
