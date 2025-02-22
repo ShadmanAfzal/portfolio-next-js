@@ -8,7 +8,7 @@ const updateCommitCount = (totalCommits: number) => {
   return axios.patch(
     `https://api.vercel.com/v9/projects/${PROJECT_ID}/env/${ENVIRONMENT_KEY}`,
     {
-      key: 'GITHUB_TOTAL_COMMITS',
+      key: 'NEXT_PUBLIC_GITHUB_TOTAL_COMMITS',
       type: 'encrypted',
       value: totalCommits.toString(),
       comment: 'Total updated commits across all repositories',
