@@ -23,7 +23,7 @@ const Stats = () => {
       text: 'Technologies mastered',
     },
     {
-      count: 971,
+      count: Number(process.env.NEXT_PUBLIC_GITHUB_TOTAL_COMMITS!),
       text: 'Total Commits',
     },
   ];
