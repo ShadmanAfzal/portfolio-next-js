@@ -24,7 +24,9 @@ export async function GET(req: Request) {
 
   await updateCommitCount(totalCount);
 
-  await triggerRedeployment();
+  if (process.env.NODE_ENV === 'production') {
+    await triggerRedeployment();
+  }
 
   console.log('Cron job completed successfully');
 
