@@ -14,6 +14,14 @@ export async function GET(req: Request) {
 
   const totalCount = await getTotalCommitsAcrossAllRepos();
 
+  if (Number(process.env.NEXT_PUBLIC_GITHUB_TOTAL_COMMITS) === totalCount) {
+    console.log('Environment variable is already up to date');
+    return NextResponse.json({
+      totalCount,
+      message: 'environment variable is already up to date',
+    });
+  }
+
   await updateCommitCount(totalCount);
 
   await triggerRedeployment();
