@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
       ariaLabel: 'View my Linkedin profile',
     },
     {
-      href: 'https://x.com/JustinKhan123',
+      href: 'https://x.com/shadman_nawab',
       logo: FaXTwitter,
       ariaLabel: 'Follow me on X',
     },
