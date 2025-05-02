@@ -152,11 +152,11 @@ export default function Contact() {
               <div className='text-white/80 leading-tight'>Phone</div>
               <a
                 target='_blank'
-                href='tel:+919650560450'
+                href={`tel:+91${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
                 rel='noopener noreferrer'
                 className='text-white'
               >
-                +91 9650560450
+                +91 ${process.env.NEXT_PUBLIC_PHONE_NUMBER}
               </a>
             </div>
           </div>

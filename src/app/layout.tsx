@@ -1,7 +1,10 @@
 import './globals.css';
-import { Analytics } from '@vercel/analytics/react';
+
 import { Metadata } from 'next';
 import Provider from './provider';
+
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   icons: {
@@ -48,6 +51,7 @@ export default function RootLayout({
       <body className='bg-background'>
         <Provider>{children}</Provider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -14,8 +14,8 @@ const AboutMe = () => {
     },
     {
       key: 'Phone',
-      value: '+91 9650560450',
-      link: 'tel:+919650560450',
+      value: `+91 ${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+      link: `tel:+91${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
     },
     {
       key: 'Email',
