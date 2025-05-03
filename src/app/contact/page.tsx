@@ -156,7 +156,7 @@ export default function Contact() {
                 rel='noopener noreferrer'
                 className='text-white'
               >
-                +91 ${process.env.NEXT_PUBLIC_PHONE_NUMBER}
+                +91 {process.env.NEXT_PUBLIC_PHONE_NUMBER}
               </a>
             </div>
           </div>
