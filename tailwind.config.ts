@@ -21,10 +21,10 @@ export default {
     },
     extend: {
       colors: {
-        background: '#121212',
+        background: '#1C1C22',
         primary: '#C2ED2A',
         secondary: '#E6FDFE',
-        card: '#181818',
+        card: '#27272c',
       },
     },
   },
