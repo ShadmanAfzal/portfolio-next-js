@@ -11,7 +11,6 @@ import { Tooltip } from 'react-tooltip';
 import 'swiper/swiper-bundle.css';
 
 type ProjectType = {
-  number: string;
   title: string;
   image: string;
   description: string;
@@ -21,7 +20,23 @@ type ProjectType = {
 
 const projects: ProjectType[] = [
   {
-    number: '01',
+    title: 'DevArena',
+    link: 'https://github.com/ShadmanAfzal/DevArena',
+    description:
+      'DevArena is a full-stack coding platform where users can solve programming problems, submit code in multiple languages, and receive instant feedback with test case results. It features user authentication, problem tracking, and an admin dashboard, all built with a modern TypeScript/React frontend and a Node.js/Express backend.',
+    image: '/images/dev-arena.png',
+    tech: [
+      'Node.js',
+      'React.js',
+      'Tailwind CSS',
+      'Docker',
+      'Google-auth',
+      'Docker',
+      'Zustand',
+      'Monaco editor',
+    ],
+  },
+  {
     title: 'Velocity Email Client',
     link: 'https://github.com/ShadmanAfzal/Velocity-Email-Client',
     description:
@@ -40,7 +55,6 @@ const projects: ProjectType[] = [
     ],
   },
   {
-    number: '02',
     title: 'Real-Time Notification System',
     link: 'https://github.com/ShadmanAfzal/notification-system-design',
     description:
@@ -49,7 +63,6 @@ const projects: ProjectType[] = [
     tech: ['Node.js', 'Docker', 'Typescript', 'Prisma', 'Zod', 'Kafka'],
   },
   {
-    number: '03',
     title: 'Library Book Management Application',
     description:
       'A modern library management system built with Node.js and React.js ensures seamless book tracking and optimized performance using Webpack. Secure Google OAuth 2.0 enables effortless user authentication.',
@@ -106,7 +119,9 @@ export default function Project() {
         <div className='flex flex-col-reverse items-center lg:flex-row gap-4 w-full'>
           <div className='flex flex-col gap-4 lg:w-[50%]'>
             <div className='text-6xl font-extrabold leading-none text-transparent text-outline'>
-              {curentProject.number}
+              {(projects.findIndex((p) => p.title === curentProject.title) + 1)
+                .toString()
+                .padStart(2, '0')}
             </div>
             <div className='text-3xl text-white font-bold hover:text-primary'>
               <a
@@ -117,12 +132,8 @@ export default function Project() {
                 {curentProject.title}
               </a>
             </div>
-            <div className='text-white/80 leading-relaxed'>
-              {curentProject.description}
-            </div>
-            <div className='text-primary leading-relaxed'>
-              {curentProject.tech.join(', ')}
-            </div>
+            <div className='text-white/90'>{curentProject.description}</div>
+            <div className='text-primary'>{curentProject.tech.join(', ')}</div>
           </div>
           <Swiper
             slidesPerView={1}
@@ -130,15 +141,16 @@ export default function Project() {
             onSlideChange={onSlideChange}
             onBeforeInit={onInit}
             allowTouchMove={false}
-            className='h-[200px] lg:h-[300px] w-full lg:w-[50%] bg-card'
+            className='h-[200px] lg:h-[300px] w-full lg:w-[50%]'
           >
             {projects.map((project, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <div className='flex items-center'>
+                  <div className='flex items-center justify-center h-full relative'>
+                    <div className='absolute inset-0 rounded-xl bg-black/15 z-0' />
                     <Image
                       src={project.image}
-                      className='object-contain'
+                      className='object-contain rounded-xl shadow-2xl z-10'
                       alt=''
                       fill
                       priority
