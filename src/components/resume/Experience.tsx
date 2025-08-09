@@ -7,12 +7,22 @@ import { FaLocationDot } from 'react-icons/fa6';
 const Experience = () => {
   const [experiences, setExperiences] = useState([
     {
+      company: 'Squareboat',
+      position: 'Senior Software Engineer',
+      location: 'Gurugram, Inda',
+      startDate: moment('2025-08-04', 'YYYY-MM-DD'),
+      endDate: undefined,
+      isCurrent: true,
+      description: [],
+      showMore: false,
+    },
+    {
       company: 'Tata Consultancy Services',
       position: 'Systems Engineer',
       location: 'Noida, Inda',
       startDate: moment('2022-07-21', 'YYYY-MM-DD'),
-      endDate: undefined,
-      isCurrent: true,
+      endDate: moment('2025-07-31', 'YYYY-MM-DD'),
+      isCurrent: false,
       description: [
         'Worked on multiple projects using the PERN stack, focusing on Node.js and React.js.',
         'Utilized a range of industry-standard tools including Jira, Contentful, ServiceNow, AWS, Docker, and more.',
