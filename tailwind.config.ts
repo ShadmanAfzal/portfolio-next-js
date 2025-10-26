@@ -21,7 +21,7 @@ export default {
     },
     extend: {
       colors: {
-        background: '#0A0A0A',
+        background: '#111111',
         primary: '#C2ED2A',
         secondary: '#E6FDFE',
         card: '#121212',
