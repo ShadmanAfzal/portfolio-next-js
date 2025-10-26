@@ -1,10 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'ComicShanns';
+    src: url('/fonts/comic-shanns.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
   :root {
     --toastify-toast-min-height: 30px;
     --toastify-color-success: theme('colors.primary');
@@ -12,8 +18,9 @@
     --toastify-toast-padding: 10px;
     --toastify-text-color-success: theme('colors.background');
     --toastify-toast-width: max-content;
-    --toastify-font-family: 'Reddit Mono';
+    --toastify-font-family: 'ComicShanns';
   }
+
   .text-outline {
     -webkit-text-stroke: 1px #ffffff;
   }

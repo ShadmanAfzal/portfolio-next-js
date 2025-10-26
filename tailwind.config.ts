@@ -17,14 +17,14 @@ export default {
       lg: '960px',
     },
     fontFamily: {
-      primary: ['Reddit Mono', 'Monospace'],
+      primary: ['ComicShanns', 'Monospace'],
     },
     extend: {
       colors: {
-        background: '#1C1C22',
+        background: '#0A0A0A',
         primary: '#C2ED2A',
         secondary: '#E6FDFE',
-        card: '#27272c',
+        card: '#121212',
       },
     },
   },

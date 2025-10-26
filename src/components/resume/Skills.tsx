@@ -17,6 +17,7 @@ import {
   SiDjango,
   SiJavascript,
   SiKubernetes,
+  SiNestjs,
   SiNextdotjs,
   SiPython,
   SiRedux,
@@ -55,6 +56,10 @@ const Skills = () => {
     {
       label: 'Node.js',
       logo: FaNodeJs,
+    },
+    {
+      label: 'Nest.js',
+      logo: SiNestjs,
     },
     {
       label: 'React.js',

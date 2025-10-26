@@ -15,11 +15,11 @@ const Stats = () => {
       text: 'Years of experience',
     },
     {
-      count: 17,
+      count: 18,
       text: 'Projects completed',
     },
     {
-      count: 16,
+      count: 17,
       text: 'Technologies mastered',
     },
     {
