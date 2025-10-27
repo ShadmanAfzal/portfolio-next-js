@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { LuGithub } from 'react-icons/lu';
 import { SiGmail } from 'react-icons/si';
 import ProfileImage from './ProfileImage';
@@ -21,6 +21,11 @@ const Hero: React.FC = () => {
       href: 'https://x.com/shadman_nawab',
       logo: FaXTwitter,
       ariaLabel: 'Follow me on X',
+    },
+    {
+      href: 'https://www.instagram.com/shadmanafzal.in/',
+      logo: FaInstagram,
+      ariaLabel: 'Follow me on Instagram',
     },
     {
       href: 'mailto:shadmana.afzal.7@gmail.com',
