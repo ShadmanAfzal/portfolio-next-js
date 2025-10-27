@@ -4,21 +4,34 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { AiOutlineLoading } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { IoCall } from 'react-icons/io5';
+import { IoCall, IoCheckmarkCircleOutline } from 'react-icons/io5';
 import { MdAlternateEmail, MdLocationPin } from 'react-icons/md';
-import { toast } from 'react-toastify';
+import confetti from 'canvas-confetti';
 
 import saveContactInfoToDB from '../actions/saveContactInfo';
 import { Geolocation } from '@/types/geolocation';
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState<{
+    message: string;
+    success: boolean;
+  } | null>(null);
+
   const formRef = useRef<HTMLFormElement>(null);
 
-  const showToast = (message: string, type: 'success' | 'error') => {
-    if (type === 'success') return toast.success(message);
+  const openModal = (message: string, success: boolean) => {
+    setModalData({ message, success });
+    setShowModal(true);
 
-    return toast.error(message);
+    if (success) {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 },
+      });
+    }
   };
 
   const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,7 +49,7 @@ export default function Contact() {
 
     formRef.current?.reset();
 
-    showToast(result.message, result.success ? 'success' : 'error');
+    openModal(result.message, result.success);
   };
 
   const fetchGeoLocation = async (): Promise<Geolocation | null> => {
@@ -148,7 +161,7 @@ export default function Contact() {
             <div className='bg-card p-4 text-primary rounded-md'>
               <IoCall size={26} />
             </div>
-            <div className='flex flex-col justify-center gap-2'>
+            <div className='flex flex-col justify-center gap-1'>
               <div className='text-white/80 leading-tight'>Phone</div>
               <a
                 target='_blank'
@@ -164,7 +177,7 @@ export default function Contact() {
             <div className='bg-card p-4 text-primary rounded-md'>
               <MdAlternateEmail size={26} />
             </div>
-            <div className='flex flex-col justify-center gap-2'>
+            <div className='flex flex-col justify-center gap-1'>
               <div className='text-white/80 leading-tight'>Email</div>
               <a
                 target='_blank'
@@ -180,7 +193,7 @@ export default function Contact() {
             <div className='bg-card p-4 text-primary rounded-md'>
               <MdLocationPin size={26} />
             </div>
-            <div className='flex flex-col justify-center gap-2'>
+            <div className='flex flex-col justify-center gap-1'>
               <div className='text-white/80 leading-tight'>Address</div>
               <div className='text-white'>New Delhi, India</div>
             </div>
@@ -189,7 +202,7 @@ export default function Contact() {
             <div className='bg-card p-4 text-primary rounded-md'>
               <FaLinkedinIn size={26} />
             </div>
-            <div className='flex flex-col justify-center gap-2'>
+            <div className='flex flex-col justify-center gap-1'>
               <div className='text-white/80 leading-tight'>LinkedIn</div>
               <a
                 target='_blank'
@@ -203,6 +216,39 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      {showModal && modalData && (
+        <div
+          className='fixed inset-0 backdrop-blur-sm bg-black/40 flex justify-center items-center z-50'
+          onClick={() => setShowModal(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className='relative bg-card p-6 rounded-xl shadow-xl w-[90%] sm:w-[380px] flex flex-col gap-4 text-center'
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className='flex justify-center'>
+              <IoCheckmarkCircleOutline className='text-primary' size={56} />
+            </div>
+
+            <div className='text-lg font-semibold text-white'>
+              Thanks for reaching out!
+            </div>
+
+            <div className='text-white/80 text-sm leading-relaxed px-2'>
+              {modalData.message}
+            </div>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className='mt-2 rounded-full bg-primary text-background font-semibold text-sm px-5 py-2 active:scale-95 transition-all hover:opacity-90'
+            >
+              Close
+            </button>
+          </motion.div>
+        </div>
+      )}
     </motion.section>
   );
 }
