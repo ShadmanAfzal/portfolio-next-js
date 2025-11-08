@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
         </div>
         <div className='flex flex-col lg:flex-row gap-4 my-2 items-center'>
           <a
-            href='/Shadman Afzal Resume.pdf'
+            href='/Shadman_Afzal_Fullstack_Developer_3yrs.pdf'
             className='px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-200 font-semibold text-sm active:scale-95'
             download
             aria-label='Download my CV'
