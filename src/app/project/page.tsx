@@ -132,7 +132,9 @@ export default function Project() {
                 {curentProject.title}
               </a>
             </div>
-            <div className='text-white/90'>{curentProject.description}</div>
+            <div className='text-white/85 text-balance'>
+              {curentProject.description}
+            </div>
             <div className='text-primary'>{curentProject.tech.join(', ')}</div>
           </div>
           <Swiper
