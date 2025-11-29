@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           <div className='text-primary'>Shadman Afzal</div>
         </div>
         <div>
-          <p className='text-white/80 leading-loose text-center lg:text-start'>
+          <p className='text-white/80 leading-loose text-center lg:text-start text-balance'>
             A seasoned software engineer with a passion for excellence and a
             proven track record, seeking an exciting new opportunity to drive
             transformative technological solutions.
