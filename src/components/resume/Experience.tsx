@@ -14,7 +14,8 @@ const Experience = () => {
       endDate: undefined,
       isCurrent: true,
       description: [
-        'Engineered and deployed backend APIs for a job portal using Nest.js, ensuring robust and maintainable architecture.', 'Integrated Sentry for real-time error monitoring, PM2 for process orchestration, and Redis queues for scalable, asynchronous email notification workflows.'
+        'Engineered and deployed backend APIs for a job portal using Nest.js, ensuring robust and maintainable architecture.',
+        'Integrated Sentry for real-time error monitoring, PM2 for process orchestration, and Redis queues for scalable, asynchronous email notification workflows.',
       ],
       showMore: false,
     },

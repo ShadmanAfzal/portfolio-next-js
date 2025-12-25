@@ -73,22 +73,22 @@ export default function Navigation() {
           </button>
 
           <div className='mt-6 mb-12'>
-            <div className='text-white text-2xl font-semibold flex gap-1'>
+            <div className='text-white text-2xl font-semibold'>
               <span>shadmanafzal</span>
               <span className='text-primary'>.in</span>
             </div>
           </div>
 
-          <nav className='flex flex-col gap-2'>
+          <nav className='flex flex-col gap-4'>
             {navLinks.map((navLink, idx) => {
               const isActive = currentPath === navLink.path;
               return (
                 <button
                   key={idx}
-                  className={`text-left px-4 py-3 rounded-lg transition-all duration-200 ${
+                  className={`text-left text-sm font-semibold px-4 h-[40px] rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'text-primary bg-primary/10'
-                      : 'text-white hover:bg-white/5 hover:text-primary'
+                      ? 'bg-primary text-background'
+                      : 'bg-card bg-opacity-75 text-white cursor-pointer'
                   }`}
                   onClick={() => navigateToTab(navLink)}
                 >

@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         href={NAVIGATION_PATH.HOME}
       >
         <span>shadmanafzal</span>
-              <span className='text-primary'>.in</span>
+        <span className='text-primary'>.in</span>
       </Link>
       <div className='lg:flex lg:gap-8 items-center hidden'>
         <div className='flex gap-8 text-white'>

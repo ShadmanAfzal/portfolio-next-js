@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
     const currentDate = moment();
     const years = currentDate.diff(startDate, 'years');
 
-    return ` ${years}+`;
+    return `${years}+`;
   };
 
   return (
