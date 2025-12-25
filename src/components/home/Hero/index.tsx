@@ -53,9 +53,9 @@ const Hero: React.FC = () => {
         </div>
         <div>
           <p className='text-white/80 leading-loose text-center lg:text-start text-balance'>
-            A Fullstack JavaScript developer based in New Delhi, India. I have{' '}
-            {calculateExperience()} years of experience working with Node.js,
-            React.js, and AWS. I enjoy building software that solves real
+            A Fullstack JavaScript developer based in New Delhi, India, with{' '}
+            {calculateExperience()} years of experience in Node.js, React.js,
+            and AWS, focused on building software that solves real-world
             problems.
           </p>
         </div>
