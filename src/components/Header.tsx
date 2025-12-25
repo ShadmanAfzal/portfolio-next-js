@@ -36,8 +36,8 @@ const Header: React.FC = () => {
         className='text-white text-2xl font-semibold cursor-pointer select-none'
         href={NAVIGATION_PATH.HOME}
       >
-        <span>Shadman</span>
-        <span className='text-primary'> Afzal</span>
+        <span>shadmanafzal</span>
+              <span className='text-primary'>.in</span>
       </Link>
       <div className='lg:flex lg:gap-8 items-center hidden'>
         <div className='flex gap-8 text-white'>

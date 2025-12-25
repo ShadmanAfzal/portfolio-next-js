@@ -56,42 +56,47 @@ export default function Navigation() {
 
   return (
     <div
-      className='absolute left-0 right-0 top-0 z-20 h-screen overscroll-none bg-black/30'
-      onClick={() => closeMenu()}
+      className='fixed inset-0 z-20 bg-black/40 backdrop-blur-sm transition-opacity duration-300'
+      onClick={closeMenu}
     >
       <div
-        className='flex flex-col bg-background float-right items-center w-[80%] h-full py-8 px-4'
+        className='absolute right-0 top-0 h-full w-[80%] max-w-sm bg-background shadow-xl transition-transform duration-300 ease-out'
         onClick={(event) => event.stopPropagation()}
       >
-        <div className='flex items-end justify-end self-end'>
+        <div className='h-full flex flex-col p-6'>
           <button
             onClick={closeMenu}
-            className='text-2xl text-primary'
+            className='self-end text-primary hover:opacity-70 transition-opacity active:scale-90'
             aria-label='Close navigation menu'
           >
-            <IoMdClose size={30} />
+            <IoMdClose size={28} />
           </button>
-        </div>
-        <div className='mt-12'>
-          <div className='text-white text-2xl font-semibold flex gap-1 py-4'>
-            <span>Shadman</span>
-            <span className='text-primary'>Afzal</span>
+
+          <div className='mt-6 mb-12'>
+            <div className='text-white text-2xl font-semibold flex gap-1'>
+              <span>shadmanafzal</span>
+              <span className='text-primary'>.in</span>
+            </div>
           </div>
-          <div className='flex flex-col items-center gap-2'>
+
+          <nav className='flex flex-col gap-2'>
             {navLinks.map((navLink, idx) => {
+              const isActive = currentPath === navLink.path;
               return (
-                <div
+                <button
                   key={idx}
-                  className={`hover:text-primary text-center w-max text-lg ${
-                    currentPath === navLink.path ? 'text-primary' : 'text-white'
+                  className={`text-left px-4 py-3 rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? 'text-primary bg-primary/10'
+                      : 'text-white hover:bg-white/5 hover:text-primary'
                   }`}
                   onClick={() => navigateToTab(navLink)}
                 >
-                  {navLink.label}
-                </div>
+                  <span className='text-lg'>{navLink.label}</span>
+                </button>
               );
             })}
-          </div>
+          </nav>
         </div>
       </div>
     </div>
