@@ -85,14 +85,14 @@ export default function Navigation() {
               return (
                 <button
                   key={idx}
-                  className={`text-left text-sm font-semibold px-4 h-[40px] rounded-lg transition-all duration-200 ${
+                  className={`text-center px-4 h-[40px] rounded-lg transition-all duration-200 ${
                     isActive
                       ? 'bg-primary text-background'
-                      : 'bg-card bg-opacity-75 text-white cursor-pointer'
+                      : 'bg-card bg-opacity-45 text-white cursor-pointer'
                   }`}
                   onClick={() => navigateToTab(navLink)}
                 >
-                  <span className='text-lg'>{navLink.label}</span>
+                  <span className='text-sm font-semibold'>{navLink.label}</span>
                 </button>
               );
             })}
