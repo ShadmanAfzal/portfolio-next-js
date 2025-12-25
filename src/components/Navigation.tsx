@@ -72,7 +72,7 @@ export default function Navigation() {
             <IoMdClose size={28} />
           </button>
 
-          <div className='mt-6 mb-12'>
+          <div className='my-6'>
             <div className='text-white text-2xl font-semibold'>
               <span>shadmanafzal</span>
               <span className='text-primary'>.in</span>
@@ -88,7 +88,7 @@ export default function Navigation() {
                   className={`text-center px-4 h-[40px] rounded-lg transition-all duration-200 ${
                     isActive
                       ? 'bg-primary text-background'
-                      : 'bg-card bg-opacity-45 text-white cursor-pointer'
+                      : 'bg-card bg-opacity-75 text-white cursor-pointer'
                   }`}
                   onClick={() => navigateToTab(navLink)}
                 >
