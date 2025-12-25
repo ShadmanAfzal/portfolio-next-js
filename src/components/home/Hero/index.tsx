@@ -4,6 +4,7 @@ import { FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { LuGithub } from 'react-icons/lu';
 import { SiGmail } from 'react-icons/si';
 import ProfileImage from './ProfileImage';
+import moment from 'moment';
 
 const Hero: React.FC = () => {
   const socialLinks: { href: string; logo: IconType; ariaLabel: string }[] = [
@@ -34,6 +35,14 @@ const Hero: React.FC = () => {
     },
   ];
 
+  const calculateExperience = () => {
+    const startDate = moment('2022-07-21');
+    const currentDate = moment();
+    const years = currentDate.diff(startDate, 'years');
+
+    return `${years}+`;
+  };
+
   return (
     <div className='flex flex-col-reverse lg:flex-row items-center justify-center gap-4'>
       <div className='flex flex-col gap-2 text-center items-center lg:items-start lg:max-w-[500px]'>
@@ -44,9 +53,10 @@ const Hero: React.FC = () => {
         </div>
         <div>
           <p className='text-white/80 leading-loose text-center lg:text-start text-balance'>
-            A seasoned software engineer with a passion for excellence and a
-            proven track record, seeking an exciting new opportunity to drive
-            transformative technological solutions.
+            A Fullstack JavaScript developer based in New Delhi, India. I have{' '}
+            {calculateExperience()} years of experience working with Node.js,
+            React.js, and AWS. I enjoy building software that solves real
+            problems.
           </p>
         </div>
         <div className='flex flex-col lg:flex-row gap-4 my-2 items-center'>

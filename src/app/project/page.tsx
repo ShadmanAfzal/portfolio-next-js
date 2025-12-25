@@ -5,8 +5,8 @@ import { Swiper as SwiperType } from 'swiper';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from 'react-icons/md';
+import { FiExternalLink } from 'react-icons/fi';
 import Image from 'next/image';
-import { Tooltip } from 'react-tooltip';
 
 import 'swiper/swiper-bundle.css';
 
@@ -31,7 +31,6 @@ const projects: ProjectType[] = [
       'Tailwind CSS',
       'Docker',
       'Google-auth',
-      'Docker',
       'Zustand',
       'Monaco editor',
     ],
@@ -48,7 +47,6 @@ const projects: ProjectType[] = [
       'Tailwind CSS',
       'Docker',
       'Passport.js',
-      'Docker',
       'Webpack',
       'Redux',
       'Redis',
@@ -82,7 +80,9 @@ const projects: ProjectType[] = [
 ];
 
 export default function Project() {
-  const [curentProject, setCurrentProject] = useState<ProjectType>(projects[0]);
+  const [currentProject, setCurrentProject] = useState<ProjectType>(
+    projects[0]
+  );
   const [canMoveLeft, setCanMoveLeft] = useState(false);
   const [canMoveRight, setCanMoveRight] = useState(!!projects.length);
 
@@ -107,6 +107,10 @@ export default function Project() {
     setCurrentProject(projects[currentPage]);
   };
 
+  const currentIndex = projects.findIndex(
+    (p) => p.title === currentProject.title
+  );
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -114,80 +118,88 @@ export default function Project() {
         opacity: 1,
         transition: { delay: 0.2, duration: 0.4, ease: 'easeIn' },
       }}
+      className='py-8'
     >
-      <div className='relative py-4 lg:py-8'>
-        <div className='flex flex-col-reverse items-center lg:flex-row gap-4 w-full'>
-          <div className='flex flex-col gap-4 lg:w-[50%]'>
-            <div className='text-6xl font-extrabold leading-none text-transparent text-outline'>
-              {(projects.findIndex((p) => p.title === curentProject.title) + 1)
-                .toString()
-                .padStart(2, '0')}
-            </div>
-            <div className='text-3xl text-white font-bold hover:text-primary'>
+      <div className='flex flex-col lg:flex-row gap-8 items-center'>
+        <div className='flex flex-col gap-4 lg:w-[50%] order-2 lg:order-1'>
+          <div className='text-6xl font-extrabold leading-none text-transparent text-outline'>
+            {(currentIndex + 1).toString().padStart(2, '0')}
+          </div>
+
+          <div className='flex items-center gap-3'>
+            <h3 className='text-3xl text-white font-bold hover:text-primary transition-colors duration-200'>
               <a
-                href={curentProject.link}
+                href={currentProject.link}
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                {curentProject.title}
+                {currentProject.title}
               </a>
-            </div>
-            <div className='text-white/85 text-balance'>
-              {curentProject.description}
-            </div>
-            <div className='text-primary'>{curentProject.tech.join(', ')}</div>
+            </h3>
+            <a
+              href={currentProject.link}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-primary hover:text-primary/80 transition-colors duration-200'
+              aria-label={`View ${currentProject.title}`}
+            >
+              <FiExternalLink size={20} />
+            </a>
           </div>
+
+          <p className='text-white/85 text-balance leading-relaxed'>
+            {currentProject.description}
+          </p>
+
+          <div className='text-primary text-sm'>
+            {currentProject.tech.join(' • ')}
+          </div>
+        </div>
+
+        <div className='lg:w-[50%] w-full order-1 lg:order-2'>
           <Swiper
             slidesPerView={1}
             spaceBetween={50}
             onSlideChange={onSlideChange}
             onBeforeInit={onInit}
-            allowTouchMove={false}
-            className='h-[200px] lg:h-[300px] w-full lg:w-[50%]'
+            allowTouchMove={true}
+            className='h-[200px] lg:h-[300px] w-full'
           >
-            {projects.map((project, idx) => {
-              return (
-                <SwiperSlide key={idx}>
-                  <div className='flex items-center justify-center h-full relative'>
-                    <div className='absolute inset-0 rounded-xl bg-black/15 z-0' />
-                    <Image
-                      src={project.image}
-                      className='object-contain rounded-xl shadow-2xl z-10'
-                      alt=''
-                      fill
-                      priority
-                    />
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+            {projects.map((project, idx) => (
+              <SwiperSlide key={idx}>
+                <div className='flex items-center justify-center h-full relative'>
+                  <div className='absolute inset-0 rounded-xl bg-black/15 z-0' />
+                  <Image
+                    src={project.image}
+                    className='object-contain rounded-xl shadow-2xl z-10'
+                    alt={project.title}
+                    fill
+                    priority={idx === 0}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
-        <div className='absolute top-20 right-0 z-10 lg:top-0 lg:right-0 lg:relative flex flex-row gap-2 w-full justify-between lg:justify-end pt-4'>
-          <Tooltip id='swiper-btn' />
-          <button
-            onClick={() => swiperRef?.current?.slidePrev()}
-            className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
-            disabled={!canMoveLeft}
-            data-tooltip-id='link'
-            data-tooltip-content={!canMoveLeft ? null : 'Previous'}
-            data-tooltip-place='top'
-            aria-label='View previous project'
-          >
-            <MdOutlineNavigateBefore size={20} />
-          </button>
-          <button
-            onClick={() => swiperRef?.current?.slideNext()}
-            className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
-            disabled={!canMoveRight}
-            data-tooltip-id='link'
-            data-tooltip-content={!canMoveRight ? null : 'Next'}
-            data-tooltip-place='top'
-            aria-label='View next project'
-          >
-            <MdOutlineNavigateNext size={20} />
-          </button>
-        </div>
+      </div>
+
+      <div className='flex gap-2 justify-end mt-8'>
+        <button
+          onClick={() => swiperRef?.current?.slidePrev()}
+          className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
+          disabled={!canMoveLeft}
+          aria-label='Previous project'
+        >
+          <MdOutlineNavigateBefore size={20} />
+        </button>
+        <button
+          onClick={() => swiperRef?.current?.slideNext()}
+          className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
+          disabled={!canMoveRight}
+          aria-label='Next project'
+        >
+          <MdOutlineNavigateNext size={20} />
+        </button>
       </div>
     </motion.section>
   );
