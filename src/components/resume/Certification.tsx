@@ -70,7 +70,7 @@ const Certification = () => {
               href={cert.link}
               target='_blank'
               rel='noopener noreferrer'
-              className='flex flex-col items-start justify-center gap-1 bg-card rounded-md py-4 px-6'
+              className='flex flex-col items-start justify-center gap-1 bg-card rounded-3xl py-4 px-6'
             >
               <div className='flex items-center gap-4 text-white'>
                 <cert.logo size={28} />

@@ -13,8 +13,9 @@ const ProfileImage = () => {
       >
         <div className='w-[200px] h-[200px] lg:h-[380px] lg:w-[380px] mix-blend-lighten absolute'>
           <Image
+            id='avatar-image'
             src='/images/avatar.png'
-            className='object-contain rounded-full'
+            className='object-contain'
             alt=''
             fill
             priority

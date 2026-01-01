@@ -93,7 +93,7 @@ const Experience = () => {
           return (
             <div
               key={idx}
-              className='flex flex-col gap-1 bg-card rounded-md py-4 px-6 transition-all duration-200 cursor-pointer'
+              className='flex flex-col gap-1 bg-card rounded-3xl py-4 px-6 transition-all duration-200 cursor-pointer'
               onClick={() => expandExperience(experience.company)}
             >
               <div className='text-sm text-primary'>

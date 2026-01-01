@@ -137,9 +137,9 @@ const Skills = () => {
               data-tooltip-id='skills'
               data-tooltip-content={skill.label}
               data-tooltip-place='top'
-              className='flex flex-col items-center justify-center gap-1 bg-card rounded-md py-4 px-6 transition-all duration-200 text-white hover:text-primary'
+              className='flex flex-col items-center justify-center gap-1 bg-card rounded-3xl py-4 px-6 transition-all duration-200 text-white hover:text-primary'
             >
-              <Tooltip id='skills' noArrow className='rounded-md' />
+              <Tooltip id='skills' noArrow className='rounded-3xl' />
               <skill.logo size={40} />
             </div>
           );

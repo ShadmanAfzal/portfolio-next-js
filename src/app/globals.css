@@ -11,6 +11,10 @@
     font-display: swap;
   }
 
+  #avatar-image {
+    border-radius: 50% !important;
+  }
+
   .text-outline {
     -webkit-text-stroke: 1px #ffffff;
   }

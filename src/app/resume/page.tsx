@@ -57,7 +57,7 @@ export default function Resume() {
               <div
                 onClick={() => toggleTab(tab)}
                 className={twMerge(
-                  'h-[40px] w-full rounded-md flex justify-center items-center text-sm font-semibold active:scale-95 transition-all duration-200',
+                  'h-[40px] w-full rounded-3xl flex justify-center items-center text-sm font-semibold active:scale-95 transition-all duration-200',
                   activeTab === tab
                     ? 'bg-primary text-background'
                     : 'bg-card text-white cursor-pointer'

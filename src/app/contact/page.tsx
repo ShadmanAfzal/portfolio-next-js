@@ -81,7 +81,7 @@ export default function Contact() {
       }}
     >
       <div className='flex flex-col md:flex-row py-4 lg:py-8 gap-8 lg:gap-16'>
-        <div className='bg-card rounded-md py-4 px-5 w-full lg:w-[55%]'>
+        <div className='bg-card rounded-3xl py-4 px-5 w-full lg:w-[55%]'>
           <div className='text-2xl text-primary pb-2'>Lets Connect</div>
           <div className='text-white/80 leading-relaxed'>
             Let&apos;s explore how we can create something exceptional together.
@@ -94,14 +94,14 @@ export default function Contact() {
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
                 name='firstname'
-                className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Firstname'
                 required
                 autoComplete='off'
               />
               <input
                 name='lastname'
-                className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Lastname'
                 required
                 autoComplete='off'
@@ -110,7 +110,7 @@ export default function Contact() {
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
                 name='email'
-                className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Email Address'
                 required
                 type='email'
@@ -118,7 +118,7 @@ export default function Contact() {
               />
               <input
                 name='phone'
-                className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
                 placeholder='Phone Number'
                 autoComplete='off'
                 type='number'
@@ -127,7 +127,7 @@ export default function Contact() {
             <div className='flex md:flex-row flex-col gap-4'>
               <textarea
                 name='message'
-                className='text-white flex-1 rounded-md p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none resize-none'
+                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none resize-none'
                 placeholder='Please enter your message...'
                 required
                 rows={5}
@@ -158,7 +158,7 @@ export default function Contact() {
         </div>
         <div className='flex flex-col gap-8 flex-1 justify-center items-start'>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-md'>
+            <div className='bg-card p-4 text-primary rounded-3xl'>
               <IoCall size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
@@ -174,7 +174,7 @@ export default function Contact() {
             </div>
           </div>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-md'>
+            <div className='bg-card p-4 text-primary rounded-3xl'>
               <MdAlternateEmail size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
@@ -190,7 +190,7 @@ export default function Contact() {
             </div>
           </div>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-md'>
+            <div className='bg-card p-4 text-primary rounded-3xl'>
               <MdLocationPin size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
@@ -199,7 +199,7 @@ export default function Contact() {
             </div>
           </div>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-md'>
+            <div className='bg-card p-4 text-primary rounded-3xl'>
               <FaLinkedinIn size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
