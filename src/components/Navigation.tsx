@@ -85,7 +85,7 @@ export default function Navigation() {
               return (
                 <button
                   key={idx}
-                  className={`text-center px-4 h-[40px] rounded-lg transition-all duration-200 ${
+                  className={`text-center px-4 h-[40px] rounded-3xl transition-all duration-200 ${
                     isActive
                       ? 'bg-primary text-background'
                       : 'bg-card bg-opacity-75 text-white cursor-pointer'
