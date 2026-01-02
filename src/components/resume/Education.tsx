@@ -42,7 +42,7 @@ const Education = () => {
           return (
             <div
               key={idx}
-              className='flex flex-col gap-1 bg-card rounded-md py-4 px-6 transition-all duration-200'
+              className='flex flex-col gap-1 bg-card rounded-3xl py-4 px-6 transition-all duration-200'
             >
               <div className='text-sm text-primary'>
                 {formatDate(experience.startDate)} -{' '}

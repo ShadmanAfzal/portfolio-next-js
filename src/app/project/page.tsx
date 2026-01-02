@@ -186,7 +186,7 @@ export default function Project() {
       <div className='flex gap-2 justify-end mt-8'>
         <button
           onClick={() => swiperRef?.current?.slidePrev()}
-          className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
+          className='bg-primary rounded-3xl p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
           disabled={!canMoveLeft}
           aria-label='Previous project'
         >
@@ -194,7 +194,7 @@ export default function Project() {
         </button>
         <button
           onClick={() => swiperRef?.current?.slideNext()}
-          className='bg-primary rounded-md p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
+          className='bg-primary rounded-3xl p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
           disabled={!canMoveRight}
           aria-label='Next project'
         >

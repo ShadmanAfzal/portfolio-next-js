@@ -32,13 +32,7 @@ const Header: React.FC = () => {
 
   return (
     <div className='py-8 flex justify-between'>
-      <Link
-        className='text-white text-2xl font-semibold cursor-pointer select-none'
-        href={NAVIGATION_PATH.HOME}
-      >
-        <span>shadmanafzal</span>
-        <span className='text-primary'>.in</span>
-      </Link>
+      <div />
       <div className='lg:flex lg:gap-8 items-center hidden'>
         <div className='flex gap-8 text-white'>
           {navLinks.map((link, idx) => {

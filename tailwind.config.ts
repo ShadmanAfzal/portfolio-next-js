@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import cornerShapePlugin from 'tailwindcss-corner-shape';
 
 export default {
   content: [
@@ -28,5 +29,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [cornerShapePlugin({ default: 'squircle' })],
 } satisfies Config;
