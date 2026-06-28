@@ -14,7 +14,7 @@ const Experience = () => {
       endDate: moment('2026-06-12', 'YYYY-MM-DD'),
       isCurrent: false,
       description: [
-        'Architected and deployed scalable backend APIs for a job portal usingNest.js, implementing Sentry for real-time monitoring, PM2 for process management, and Redis queuesfor asynchronous email notifications, ensuring high availability and performance.',
+        'Architected and deployed scalable backend APIs for a job portal using Nest.js, implementing Sentry for real-time monitoring, PM2 for process management, and Redis queuesfor asynchronous email notifications, ensuring high availability and performance.',
         'Enhanced Service-desk platform with multi-channel notifications (Firebase, Twilio WhatsApp), secure OTP verification, and Redis based queue processing.',
         'Led full-stack development of Anchor testing platform usingNest.js monorepo architecture with LLM powered agentic evaluation and AI proctoring, reducing manual grading by 90%.',
       ],
