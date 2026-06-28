@@ -8,14 +8,15 @@ const Experience = () => {
   const [experiences, setExperiences] = useState([
     {
       company: 'Squareboat',
-      position: 'Senior Software Engineer',
+      position: 'Software Engineer - Level 2',
       location: 'Gurugram, Inda',
       startDate: moment('2025-08-04', 'YYYY-MM-DD'),
-      endDate: undefined,
-      isCurrent: true,
+      endDate: moment('2026-06-12', 'YYYY-MM-DD'),
+      isCurrent: false,
       description: [
-        'Engineered and deployed backend APIs for a job portal using Nest.js, ensuring robust and maintainable architecture.',
-        'Integrated Sentry for real-time error monitoring, PM2 for process orchestration, and Redis queues for scalable, asynchronous email notification workflows.',
+        'Architected and deployed scalable backend APIs for a job portal usingNest.js, implementing Sentry for real-time monitoring, PM2 for process management, and Redis queuesfor asynchronous email notifications, ensuring high availability and performance.',
+        'Enhanced Service-desk platform with multi-channel notifications (Firebase, Twilio WhatsApp), secure OTP verification, and Redis based queue processing.',
+        'Led full-stack development of Anchor testing platform usingNest.js monorepo architecture with LLM powered agentic evaluation and AI proctoring, reducing manual grading by 90%.',
       ],
       showMore: false,
     },
