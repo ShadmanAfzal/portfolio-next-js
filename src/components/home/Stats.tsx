@@ -1,13 +1,11 @@
 'use client';
 
-import moment from 'moment';
+import { getYearsOfExperience } from '@/lib/experience';
 import CountUp from 'react-countup';
 import { twMerge } from 'tailwind-merge';
 
 const Stats = () => {
-  const now = moment();
-  const targetDate = moment('2022-07-21', 'YYYY-MM-DD');
-  const yearsOfExperience = (now.diff(targetDate, 'days') / 365.25).toFixed(1);
+  const yearsOfExperience = getYearsOfExperience();
 
   const stats = [
     {

@@ -1,11 +1,9 @@
 'use client';
 
-import moment from 'moment';
+import { formatYearsOfExperience } from '@/lib/experience';
 
 const AboutMe = () => {
-  const now = moment();
-  const targetDate = moment('2022-07-21', 'YYYY-MM-DD');
-  const yearsOfExperience = (now.diff(targetDate, 'days') / 365.25).toFixed(1);
+  const yearsOfExperience = formatYearsOfExperience();
 
   const details = [
     {
@@ -46,22 +44,14 @@ const AboutMe = () => {
     },
   ];
 
-  const calculateExperience = () => {
-    const startDate = moment('2022-07-21');
-    const currentDate = moment();
-    const years = currentDate.diff(startDate, 'years');
-
-    return `${years}+`;
-  };
-
   return (
     <>
       <div className='flex flex-col gap-2'>
         <div className='text-3xl text-white font-semibold'>About Me</div>
         <div className='text-white/80 leading-relaxed text-[15px]'>
           A Fullstack JavaScript developer based in New Delhi, India, with{' '}
-          {calculateExperience()} years of experience in Node.js, React.js, and
-          AWS, focused on building software that solves real-world problems.
+          {yearsOfExperience} years of experience in Node.js, React.js, and AWS,
+          focused on building software that solves real-world problems.
         </div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 py-4 text-white/80 text-[15px]'>

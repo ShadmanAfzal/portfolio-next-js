@@ -4,7 +4,7 @@ import { FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { LuGithub } from 'react-icons/lu';
 import { SiGmail } from 'react-icons/si';
 import ProfileImage from './ProfileImage';
-import moment from 'moment';
+import { formatYearsOfExperience } from '@/lib/experience';
 
 const Hero: React.FC = () => {
   const socialLinks: { href: string; logo: IconType; ariaLabel: string }[] = [
@@ -35,14 +35,6 @@ const Hero: React.FC = () => {
     },
   ];
 
-  const calculateExperience = () => {
-    const startDate = moment('2022-07-21');
-    const currentDate = moment();
-    const years = currentDate.diff(startDate, 'years');
-
-    return `${years}+`;
-  };
-
   return (
     <div className='flex flex-col-reverse lg:flex-row items-center justify-center gap-4'>
       <div className='flex flex-col gap-2 text-center items-center lg:items-start lg:max-w-[500px]'>
@@ -54,9 +46,9 @@ const Hero: React.FC = () => {
         <div>
           <p className='text-white/80 leading-loose text-center lg:text-start text-balance'>
             A Fullstack JavaScript developer based in New Delhi, India, with{' '}
-            {calculateExperience()} years of experience in Node.js, React.js,
-            and AWS, focused on building software that solves real-world
-            problems.
+            {formatYearsOfExperience()} years of experience in Node.js,
+            React.js, and AWS, focused on building software that solves
+            real-world problems.
           </p>
         </div>
         <div className='flex flex-col lg:flex-row gap-4 my-2 items-center'>
