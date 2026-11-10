@@ -49,7 +49,7 @@ const Education = () => {
                 {formatDate(experience.endDate!)}
               </div>
               <div className='flex justify-between items-center flex-wrap  text-[15px]'>
-                <div>{experience.college}</div>
+                <div className='font-secondary font-medium'>{experience.college}</div>
                 <div>{experience.grade}</div>
               </div>
               <div className='flex flex-wrap justify-between items-start gap-2'>

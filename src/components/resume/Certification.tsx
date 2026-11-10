@@ -73,7 +73,7 @@ const Certification = () => {
               <div className='flex items-center gap-4 '>
                 <cert.logo size={28} />
                 <div>
-                  <div className='text-[15px]'>{cert.name}</div>
+                  <div className='font-secondary text-[15px] font-medium'>{cert.name}</div>
                   <div className='pb-0.5 text-sm text-black/65'>{cert.company}</div>
                   {cert.endDate && (
                     <div className='text-sm'>
