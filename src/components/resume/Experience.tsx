@@ -103,7 +103,7 @@ const Experience = () => {
                   ? 'Present'
                   : formatDate(experience.endDate!)}
               </div>
-              <div className=' text-[15px]'>{experience.company}</div>
+              <div className='font-secondary text-[15px] font-medium'>{experience.company}</div>
               <div className='flex justify-between items-center'>
                 <div className='text-sm text-black/70'>{experience.position}</div>
                 <div className='flex items-center gap-2 text-sm text-black/70'>

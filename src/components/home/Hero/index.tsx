@@ -1,7 +1,6 @@
 import { IconType } from 'react-icons';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { FaInstagram, FaXTwitter } from 'react-icons/fa6';
-import { LuGithub } from 'react-icons/lu';
+import { RiGithubFill, RiInstagramFill, RiTwitterXFill } from 'react-icons/ri';
 import { SiGmail } from 'react-icons/si';
 import ProfileImage from './ProfileImage';
 import { formatYearsOfExperience } from '@/lib/experience';
@@ -10,7 +9,7 @@ const Hero: React.FC = () => {
   const socialLinks: { href: string; logo: IconType; ariaLabel: string }[] = [
     {
       href: 'https://github.com/ShadmanAfzal/',
-      logo: LuGithub,
+      logo: RiGithubFill,
       ariaLabel: 'View my GitHub account',
     },
     {
@@ -20,12 +19,12 @@ const Hero: React.FC = () => {
     },
     {
       href: 'https://x.com/shadman_nawab',
-      logo: FaXTwitter,
+      logo: RiTwitterXFill,
       ariaLabel: 'Follow me on X',
     },
     {
       href: 'https://www.instagram.com/shadmanafzal.in/',
-      logo: FaInstagram,
+      logo: RiInstagramFill,
       ariaLabel: 'Follow me on Instagram',
     },
     {
@@ -38,7 +37,7 @@ const Hero: React.FC = () => {
   return (
     <div className='flex flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
       <div className='flex flex-col items-center gap-2 text-center lg:max-w-[500px] lg:items-start lg:text-start'>
-        <div className='text-xl'>Fullstack Developer</div>
+        <div className='font-secondary text-lg text-black/55'>Fullstack Developer</div>
         <div className='flex flex-col items-center gap-2 text-5xl font-semibold lg:items-start'>
           <div className=''>Hello I&apos;m</div>
           <div className='text-primary font-secondary'>Shadman Afzal</div>
