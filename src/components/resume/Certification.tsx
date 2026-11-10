@@ -53,10 +53,8 @@ const Certification = () => {
   return (
     <>
       <div className='flex flex-col gap-2'>
-        <div className='text-3xl text-white font-semibold'>
-          My Certifications
-        </div>
-        <div className='text-white/80 leading-relaxed text-[15px]'>
+        <div className='font-secondary text-3xl font-medium text-black/80'>My Certifications</div>
+        <div className='text-[15px] leading-relaxed text-black/70'>
           Earned industry-recognized certifications in cloud computing,
           demonstrating comprehensive expertise in AWS architecture, deployment,
           and optimization.
@@ -72,13 +70,11 @@ const Certification = () => {
               rel='noopener noreferrer'
               className='flex flex-col items-start justify-center gap-1 bg-card rounded-3xl py-4 px-6'
             >
-              <div className='flex items-center gap-4 text-white'>
+              <div className='flex items-center gap-4 '>
                 <cert.logo size={28} />
                 <div>
                   <div className='text-[15px]'>{cert.name}</div>
-                  <div className='text-sm text-white/85 pb-0.5'>
-                    {cert.company}
-                  </div>
+                  <div className='pb-0.5 text-sm text-black/65'>{cert.company}</div>
                   {cert.endDate && (
                     <div className='text-sm'>
                       <span>Validity: </span>

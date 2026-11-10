@@ -11,7 +11,7 @@ const ProfileImage = () => {
           transition: { delay: 1, duration: 0.5, ease: 'easeIn' },
         }}
       >
-        <div className='w-[200px] h-[200px] lg:h-[380px] lg:w-[380px] mix-blend-lighten absolute'>
+        <div className='absolute h-[200px] w-[200px] mix-blend-multiply lg:h-[380px] lg:w-[380px]'>
           <Image
             id='avatar-image'
             src='/images/avatar.png'
@@ -23,7 +23,7 @@ const ProfileImage = () => {
           />
         </div>
         <motion.svg
-          className='w-[202px] lg:w-[382px] h-[202px] lg:h-[382px]'
+          className='h-[202px] w-[202px] text-primary lg:h-[382px] lg:w-[382px]'
           fill='transparent'
           viewBox='0 0 506 506'
           xmlns='http://www.w3.org/2000/svg'
@@ -32,7 +32,7 @@ const ProfileImage = () => {
             cx='253'
             cy='253'
             r='250'
-            stroke='hsl(75,94%, 57%)'
+            stroke='currentColor'
             strokeWidth='5'
             strokeLinecap='round'
             strokeLinejoin='round'

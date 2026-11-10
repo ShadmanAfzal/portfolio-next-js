@@ -30,8 +30,8 @@ const Education = () => {
   return (
     <>
       <div className='flex flex-col gap-2'>
-        <div className='text-3xl text-white font-semibold'>My Education</div>
-        <div className='text-white/80 leading-relaxed text-[15px]'>
+        <div className='font-secondary text-3xl font-medium text-black/80'>My Education</div>
+        <div className='text-[15px] leading-relaxed text-black/70'>
           Gained comprehensive knowledge in software development, data
           management, and emerging technologies, equipping me with the skills to
           apply innovative solutions to real-world challenges.
@@ -48,13 +48,13 @@ const Education = () => {
                 {formatDate(experience.startDate)} -{' '}
                 {formatDate(experience.endDate!)}
               </div>
-              <div className='flex justify-between items-center flex-wrap text-white text-[15px]'>
+              <div className='flex justify-between items-center flex-wrap  text-[15px]'>
                 <div>{experience.college}</div>
                 <div>{experience.grade}</div>
               </div>
               <div className='flex flex-wrap justify-between items-start gap-2'>
-                <div className='text-white/80 text-sm'>{experience.degree}</div>
-                <div className='text-white/80 text-sm flex items-center gap-2'>
+                <div className='text-sm text-black/70'>{experience.degree}</div>
+                <div className='flex items-center gap-2 text-sm text-black/70'>
                   <span className='text-primary'>
                     <FaLocationDot />
                   </span>

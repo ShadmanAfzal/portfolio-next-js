@@ -1,7 +1,6 @@
 'use client';
 
 import Hero from '@/components/home/Hero';
-import Stats from '@/components/home/Stats';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       }}
     >
       <Hero />
-      <Stats />
     </motion.section>
   );
 }
