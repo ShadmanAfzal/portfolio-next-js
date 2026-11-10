@@ -36,25 +36,25 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <div className='flex flex-col-reverse lg:flex-row items-center justify-center gap-4'>
-      <div className='flex flex-col gap-2 text-center items-center lg:items-start lg:max-w-[500px]'>
-        <div className='text-white text-xl'>Fullstack Developer</div>
-        <div className='flex flex-col items-center lg:items-start gap-2 text-5xl font-semibold'>
-          <div className='text-white'>Hello I&apos;m</div>
-          <div className='text-primary'>Shadman Afzal</div>
+    <div className='flex flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
+      <div className='flex flex-col items-center gap-2 text-center lg:max-w-[500px] lg:items-start lg:text-start'>
+        <div className='text-xl'>Fullstack Developer</div>
+        <div className='flex flex-col items-center gap-2 text-5xl font-semibold lg:items-start'>
+          <div className=''>Hello I&apos;m</div>
+          <div className='text-primary font-secondary'>Shadman Afzal</div>
         </div>
         <div>
-          <p className='text-white/80 leading-loose text-center lg:text-start text-balance'>
+          <p className='text-balance text-center leading-loose text-black/75 lg:text-start'>
             A Fullstack JavaScript developer based in New Delhi, India, with{' '}
             {formatYearsOfExperience()} years of experience in Node.js,
             React.js, and AWS, focused on building software that solves
             real-world problems.
           </p>
         </div>
-        <div className='flex flex-col lg:flex-row gap-4 my-2 items-center'>
+        <div className='my-2 flex flex-col items-center gap-4 lg:flex-row'>
           <a
             href='https://resume.shadmanafzal.in?download=true'
-            className='px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-200 font-semibold text-sm active:scale-95'
+            className='rounded-full border bg-primary px-5 py-2 text-white text-sm font-secondary font-semibold transition-all duration-200 hover:text-background active:scale-95'
             download
             aria-label='Download my CV'
           >
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                   href={link.href}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='w-8 h-8 flex justify-center items-center rounded-full border border-primary text-primary text-center hover:bg-primary hover:text-background transition-all duration-200'
+                  className='flex h-8 w-8 items-center justify-center rounded-full border border-primary text-center text-primary transition-all duration-200 hover:bg-primary hover:text-background'
                   aria-label={link.ariaLabel}
                 >
                   <link.logo size={18} />

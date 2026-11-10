@@ -2,15 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: 'ComicShanns';
-    src: url('/fonts/comic-shanns.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-background {
+    position: relative;
+    background-color: #F3EEE3;
+    background-image: radial-gradient(
+      circle at 75% 35%,
+      rgba(217, 84, 30, 0.08),
+      transparent 45%
+    );
+  }
+
+  .site-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .site-background > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer base {
   #avatar-image {
     border-radius: 50% !important;
   }
@@ -31,7 +61,7 @@
   .scrollbar-custom::-webkit-scrollbar-thumb {
     background-color: theme('colors.primary');
     border-radius: 20px;
-    border: 2px solid #1e293b;
+    /* border: 2px solid #1e293b; */
   }
 
   .scrollbar-custom::-webkit-scrollbar-thumb:hover {

@@ -11,7 +11,7 @@ export default function NotFound() {
         transition: { delay: 0.2, duration: 0.4, ease: 'easeIn' },
       }}
     >
-      <div className='flex flex-col items-center justify-center h-[400px] py-4 lg:py-8 text-xl text-white'>
+      <div className='flex flex-col items-center justify-center h-[400px] py-4 lg:py-8 text-xl '>
         404 | Page Not Found
       </div>
     </motion.section>

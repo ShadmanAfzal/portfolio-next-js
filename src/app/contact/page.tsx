@@ -20,6 +20,7 @@ export default function Contact() {
   } | null>(null);
 
   const formRef = useRef<HTMLFormElement>(null);
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
 
   const openModal = (message: string, success: boolean) => {
     setModalData({ message, success });
@@ -80,29 +81,33 @@ export default function Contact() {
         transition: { delay: 0.2, duration: 0.4, ease: 'easeIn' },
       }}
     >
-      <div className='flex flex-col md:flex-row py-4 lg:py-8 gap-8 lg:gap-16'>
-        <div className='bg-card rounded-3xl py-4 px-5 w-full lg:w-[55%]'>
-          <div className='text-2xl text-primary pb-2'>Lets Connect</div>
-          <div className='text-white/80 leading-relaxed'>
+      <div className='flex flex-col gap-8 py-4 md:flex-row lg:gap-16 lg:py-4'>
+        <div className='w-full rounded-3xl bg-card px-5 py-5 sm:px-7 sm:py-6 lg:w-[55%]'>
+          <h1 className='pb-2 font-secondary text-2xl font-medium text-primary'>
+            Let&apos;s connect
+          </h1>
+          <div className='leading-relaxed text-black/70'>
             Let&apos;s explore how we can create something exceptional together.
           </div>
           <form
-            className='flex flex-col gap-4 mt-4'
+            className='mt-5 flex flex-col gap-4'
             onSubmit={onFormSubmit}
             ref={formRef}
           >
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
                 name='firstname'
-                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='flex-1 rounded-2xl border border-black/10 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-black/45 focus:border-primary focus:ring-2 focus:ring-primary/15'
                 placeholder='Firstname'
+                aria-label='First name'
                 required
                 autoComplete='off'
               />
               <input
                 name='lastname'
-                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='flex-1 rounded-2xl border border-black/10 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-black/45 focus:border-primary focus:ring-2 focus:ring-primary/15'
                 placeholder='Lastname'
+                aria-label='Last name'
                 required
                 autoComplete='off'
               />
@@ -110,25 +115,29 @@ export default function Contact() {
             <div className='flex lg:flex-row flex-col gap-4'>
               <input
                 name='email'
-                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='flex-1 rounded-2xl border border-black/10 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-black/45 focus:border-primary focus:ring-2 focus:ring-primary/15'
                 placeholder='Email Address'
+                aria-label='Email address'
                 required
                 type='email'
                 autoComplete='off'
               />
               <input
                 name='phone'
-                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none'
+                className='flex-1 rounded-2xl border border-black/10 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-black/45 focus:border-primary focus:ring-2 focus:ring-primary/15'
                 placeholder='Phone Number'
+                aria-label='Phone number'
                 autoComplete='off'
-                type='number'
+                type='tel'
+                inputMode='tel'
               />
             </div>
             <div className='flex md:flex-row flex-col gap-4'>
               <textarea
                 name='message'
-                className='text-white flex-1 rounded-3xl p-2 bg-background border border-white/10 focus:border-primary text-sm outline-none resize-none'
+                className='flex-1 resize-none rounded-2xl border border-black/10 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-black/45 focus:border-primary focus:ring-2 focus:ring-primary/15'
                 placeholder='Please enter your message...'
+                aria-label='Message'
                 required
                 rows={5}
                 autoComplete='off'
@@ -136,7 +145,8 @@ export default function Contact() {
             </div>
             <div className='flex justify-center md:justify-start'>
               <button
-                className='rounded-full bg-primary text-background font-semibold text-sm active:scale-95 transition-all duration-200 ease-in-out h-8 w-52'
+                type='submit'
+                className='h-10 w-52 rounded-full bg-primary text-sm font-semibold text-white transition-all duration-200 ease-in-out hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:scale-[0.98] disabled:cursor-wait disabled:opacity-70'
                 disabled={isLoading}
                 aria-label='submit'
               >
@@ -156,59 +166,59 @@ export default function Contact() {
             </div>
           </form>
         </div>
-        <div className='flex flex-col gap-8 flex-1 justify-center items-start'>
-          <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-3xl'>
-              <IoCall size={26} />
+        <div className='flex flex-1 flex-col items-start justify-center gap-6'>
+          {phoneNumber && (
+            <div className='flex items-center gap-4'>
+              <div className='rounded-3xl bg-card p-4 text-primary'>
+                <IoCall size={26} />
+              </div>
+              <div className='flex flex-col justify-center gap-1'>
+                <div className='text-sm leading-tight text-black/60'>Phone</div>
+                <a
+                  href={`tel:+91${phoneNumber}`}
+                  className='transition-colors hover:text-primary'
+                >
+                  +91 {phoneNumber}
+                </a>
+              </div>
             </div>
-            <div className='flex flex-col justify-center gap-1'>
-              <div className='text-white/80 leading-tight'>Phone</div>
-              <a
-                target='_blank'
-                href={`tel:+91${process.env.NEXT_PUBLIC_PHONE_NUMBER}`}
-                rel='noopener noreferrer'
-                className='text-white'
-              >
-                +91 {process.env.NEXT_PUBLIC_PHONE_NUMBER}
-              </a>
-            </div>
-          </div>
+          )}
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-3xl'>
+            <div className='rounded-3xl bg-card p-4 text-primary'>
               <MdAlternateEmail size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
-              <div className='text-white/80 leading-tight'>Email</div>
+              <div className='text-sm leading-tight text-black/60'>Email</div>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
                 href='mailto:shadman.afzal.7@gmail.com'
-                className='text-white'
+                className='transition-colors hover:text-primary'
               >
                 shadman.afzal.7@gmail.com
               </a>
             </div>
           </div>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-3xl'>
+            <div className='rounded-3xl bg-card p-4 text-primary'>
               <MdLocationPin size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
-              <div className='text-white/80 leading-tight'>Address</div>
-              <div className='text-white'>New Delhi, India</div>
+              <div className='text-sm leading-tight text-black/60'>Address</div>
+              <div>New Delhi, India</div>
             </div>
           </div>
           <div className='flex gap-4'>
-            <div className='bg-card p-4 text-primary rounded-3xl'>
+            <div className='rounded-3xl bg-card p-4 text-primary'>
               <FaLinkedinIn size={26} />
             </div>
             <div className='flex flex-col justify-center gap-1'>
-              <div className='text-white/80 leading-tight'>LinkedIn</div>
+              <div className='text-sm leading-tight text-black/60'>LinkedIn</div>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://www.linkedin.com/in/shadman-afzal'
-                className='text-white'
+                className='transition-colors hover:text-primary'
               >
                 linkedin/shadman-afzal
               </a>
@@ -232,17 +242,17 @@ export default function Contact() {
               <IoCheckmarkCircleOutline className='text-primary' size={56} />
             </div>
 
-            <div className='text-lg font-semibold text-white'>
+            <div className='text-lg font-semibold '>
               Thanks for reaching out!
             </div>
 
-            <div className='text-white/80 text-sm leading-relaxed px-2'>
+            <div className='px-2 text-sm leading-relaxed text-black/70'>
               {modalData.message}
             </div>
 
             <button
               onClick={() => setShowModal(false)}
-              className='mt-2 rounded-full bg-primary text-background font-semibold text-sm px-5 py-2 active:scale-95 transition-all hover:opacity-90'
+              className='mt-2 rounded-full bg-primary text-background font-secondary font-semibold text-sm px-5 py-2 active:scale-95 transition-all hover:opacity-90'
             >
               Close
             </button>

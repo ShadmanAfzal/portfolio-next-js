@@ -1,10 +1,23 @@
 import './globals.css';
 
 import { Metadata } from 'next';
+import { Bricolage_Grotesque, DM_Sans } from 'next/font/google';
 import Provider from './provider';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+
+const bricolageGrotesque = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-bricolage-grotesque',
+  display: 'swap',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   icons: {
@@ -47,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='scroll-smooth'>
+    <html
+      lang='en'
+      className={`${bricolageGrotesque.variable} ${dmSans.variable} scroll-smooth`}
+    >
       <body className='bg-background'>
         <Provider>{children}</Provider>
         <Analytics />

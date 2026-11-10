@@ -122,8 +122,8 @@ const Skills = () => {
   return (
     <>
       <div className='flex flex-col gap-2'>
-        <div className='text-3xl text-white font-semibold'>My Skills</div>
-        <div className='text-white/80 leading-relaxed text-[15px]'>
+        <div className='font-secondary text-3xl font-medium text-black/80'>My Skills</div>
+        <div className='text-[15px] leading-relaxed text-black/70'>
           Proficient in Node.js, Next.js, React.js, Tailwind CSS, TypeScript,
           AWS, Docker with a focus on building responsive and scalable web
           applications.
@@ -137,10 +137,13 @@ const Skills = () => {
               data-tooltip-id='skills'
               data-tooltip-content={skill.label}
               data-tooltip-place='top'
-              className='flex flex-col items-center justify-center gap-1 bg-card rounded-3xl py-4 px-6 transition-all duration-200 text-white hover:text-primary'
+              className='group flex flex-col items-center justify-center gap-1 bg-card rounded-3xl py-4 px-6 transition-all duration-200 hover:text-primary'
             >
               <Tooltip id='skills' noArrow className='rounded-3xl' />
-              <skill.logo size={40} />
+              <skill.logo
+                size={40}
+                className='opacity-70 transition-opacity group-hover:opacity-100'
+              />
             </div>
           );
         })}

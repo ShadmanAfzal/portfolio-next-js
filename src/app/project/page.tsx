@@ -118,88 +118,108 @@ export default function Project() {
         opacity: 1,
         transition: { delay: 0.2, duration: 0.4, ease: 'easeIn' },
       }}
-      className='py-8'
+      className='py-4 lg:h-[calc(100svh-6rem)]'
     >
-      <div className='flex flex-col lg:flex-row gap-8 items-center'>
-        <div className='flex flex-col gap-4 lg:w-[50%] order-2 lg:order-1'>
-          <div className='text-6xl font-extrabold leading-none text-transparent text-outline'>
-            {(currentIndex + 1).toString().padStart(2, '0')}
-          </div>
+      <div className='flex flex-col rounded-3xl border border-black/5 bg-card/60 p-4 shadow-sm sm:p-6 lg:h-full lg:p-6'>
+        <div className='flex flex-1 flex-col items-center gap-5 lg:min-h-0 lg:flex-row lg:items-start lg:gap-8'>
+          <div className='order-2 flex w-full flex-col gap-3 lg:order-1 lg:w-1/2'>
+            <div className='flex items-center gap-3 text-sm font-medium uppercase tracking-[0.18em] text-primary/80'>
+              <span className='h-px w-8 bg-primary/50' />
+              Project {(currentIndex + 1).toString().padStart(2, '0')}
+              <span className='text-black/35'>
+                / {projects.length.toString().padStart(2, '0')}
+              </span>
+            </div>
 
-          <div className='flex items-center gap-3'>
-            <h3 className='text-3xl text-white font-bold hover:text-primary transition-colors duration-200'>
+            <div className='flex items-center gap-3'>
+              <h3 className='font-secondary text-3xl font-semibold leading-tight sm:text-4xl'>
+                <a
+                  href={currentProject.link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='transition-colors hover:text-primary'
+                >
+                  {currentProject.title}
+                </a>
+              </h3>
               <a
                 href={currentProject.link}
                 target='_blank'
                 rel='noopener noreferrer'
+                className='shrink-0 rounded-full border border-primary/20 p-2 text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white'
+                aria-label={`View ${currentProject.title}`}
               >
-                {currentProject.title}
+                <FiExternalLink size={18} />
               </a>
-            </h3>
-            <a
-              href={currentProject.link}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-primary hover:text-primary/80 transition-colors duration-200'
-              aria-label={`View ${currentProject.title}`}
+            </div>
+
+            <p className='text-pretty text-[15px] leading-relaxed text-black/75'>
+              {currentProject.description}
+            </p>
+
+            <div className='flex flex-wrap gap-2 pt-1'>
+              {currentProject.tech.map((technology) => (
+                <span
+                  key={technology}
+                  className='rounded-full border border-primary/15 bg-background/80 px-3 py-1 text-xs font-medium text-black/70'
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className='order-1 w-full lg:order-2 lg:w-1/2'>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={50}
+              onSlideChange={onSlideChange}
+              onBeforeInit={onInit}
+              allowTouchMove={true}
+              className='h-[220px] w-full sm:h-[280px] lg:h-[min(42svh,280px)]'
             >
-              <FiExternalLink size={20} />
-            </a>
-          </div>
-
-          <p className='text-white/85 text-balance leading-relaxed'>
-            {currentProject.description}
-          </p>
-
-          <div className='text-primary text-sm'>
-            {currentProject.tech.join(' • ')}
+              {projects.map((project, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className='relative flex h-full items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-card p-2 shadow-lg shadow-black/10'>
+                    <Image
+                      src={project.image}
+                      className='rounded-xl object-contain'
+                      alt={project.title}
+                      fill
+                      priority={idx === 0}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
 
-        <div className='lg:w-[50%] w-full order-1 lg:order-2'>
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={50}
-            onSlideChange={onSlideChange}
-            onBeforeInit={onInit}
-            allowTouchMove={true}
-            className='h-[200px] lg:h-[300px] w-full'
-          >
-            {projects.map((project, idx) => (
-              <SwiperSlide key={idx}>
-                <div className='flex items-center justify-center h-full relative'>
-                  <div className='absolute inset-0 rounded-xl bg-black/15 z-0' />
-                  <Image
-                    src={project.image}
-                    className='object-contain rounded-xl shadow-2xl z-10'
-                    alt={project.title}
-                    fill
-                    priority={idx === 0}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className='mt-4 flex items-center justify-between border-t border-black/5 pt-4'>
+          <span className='text-sm font-medium tabular-nums text-black/50'>
+            {(currentIndex + 1).toString().padStart(2, '0')}
+            <span className='px-1.5 text-black/25'>/</span>
+            {projects.length.toString().padStart(2, '0')}
+          </span>
+          <div className='flex gap-2'>
+            <button
+              onClick={() => swiperRef?.current?.slidePrev()}
+              className='rounded-full border border-black/10 bg-card p-2.5 text-black/70 transition-all hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 active:scale-95'
+              disabled={!canMoveLeft}
+              aria-label='Previous project'
+            >
+              <MdOutlineNavigateBefore size={22} />
+            </button>
+            <button
+              onClick={() => swiperRef?.current?.slideNext()}
+              className='rounded-full bg-primary p-2.5 text-white transition-all hover:bg-primary/85 disabled:cursor-not-allowed disabled:opacity-40 active:scale-95'
+              disabled={!canMoveRight}
+              aria-label='Next project'
+            >
+              <MdOutlineNavigateNext size={22} />
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div className='flex gap-2 justify-end mt-8'>
-        <button
-          onClick={() => swiperRef?.current?.slidePrev()}
-          className='bg-primary rounded-3xl p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
-          disabled={!canMoveLeft}
-          aria-label='Previous project'
-        >
-          <MdOutlineNavigateBefore size={20} />
-        </button>
-        <button
-          onClick={() => swiperRef?.current?.slideNext()}
-          className='bg-primary rounded-3xl p-2 lg:p-3 disabled:bg-card disabled:text-white transition-all duration-200 active:scale-90'
-          disabled={!canMoveRight}
-          aria-label='Next project'
-        >
-          <MdOutlineNavigateNext size={20} />
-        </button>
       </div>
     </motion.section>
   );

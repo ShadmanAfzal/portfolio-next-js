@@ -31,10 +31,10 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <div className='py-8 flex justify-between'>
+    <div className='flex justify-between py-8'>
       <div />
-      <div className='lg:flex lg:gap-8 items-center hidden'>
-        <div className='flex gap-8 text-white'>
+      <div className='hidden items-center lg:flex lg:gap-8'>
+        <div className='flex gap-8'>
           {navLinks.map((link, idx) => {
             return (
               <Link
@@ -45,13 +45,15 @@ const Header: React.FC = () => {
                 }
                 aria-label={link.label}
               >
-                <div className='hover:text-primary'>{link.label}</div>
+                <div className='hover:text-primary'>
+                  {link.label}
+                </div>
               </Link>
             );
           })}
         </div>
         <Link
-          className='rounded-full bg-primary px-4 text-background font-semibold text-sm py-1.5 active:scale-95 transition-all duration-200 ease-in-out'
+          className='rounded-full bg-primary px-4 py-1.5 text-sm font-secondary font-semibold text-background transition-all duration-200 ease-in-out active:scale-95'
           aria-label="Let's Connect"
           href={NAVIGATION_PATH.CONTACT}
         >
@@ -59,7 +61,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <button
-        className='lg:hidden text-primary active:scale-95 transition-all duration-200 ease-in-out'
+        className='lg:hidden text-primary font-secondary active:scale-95 transition-all duration-200 ease-in-out'
         onClick={toggleMenu}
         aria-label='Open navigation menu'
       >

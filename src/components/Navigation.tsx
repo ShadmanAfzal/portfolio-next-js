@@ -66,14 +66,14 @@ export default function Navigation() {
         <div className='h-full flex flex-col p-6'>
           <button
             onClick={closeMenu}
-            className='self-end text-primary hover:opacity-70 transition-opacity active:scale-90'
+            className='self-end text-primary font-secondary hover:opacity-70 transition-opacity active:scale-90'
             aria-label='Close navigation menu'
           >
             <IoMdClose size={28} />
           </button>
 
           <div className='my-6'>
-            <div className='text-white text-2xl font-semibold'>
+            <div className=' text-2xl font-semibold'>
               <span>shadmanafzal</span>
               <span className='text-primary'>.in</span>
             </div>
@@ -88,11 +88,13 @@ export default function Navigation() {
                   className={`text-center px-4 h-[40px] rounded-3xl transition-all duration-200 ${
                     isActive
                       ? 'bg-primary text-background'
-                      : 'bg-card bg-opacity-75 text-white cursor-pointer'
+                      : 'bg-card bg-opacity-75  cursor-pointer'
                   }`}
                   onClick={() => navigateToTab(navLink)}
                 >
-                  <span className='text-sm font-semibold'>{navLink.label}</span>
+                  <span className='text-sm font-secondary font-semibold'>
+                    {navLink.label}
+                  </span>
                 </button>
               );
             })}

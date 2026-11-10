@@ -81,8 +81,8 @@ const Experience = () => {
   return (
     <>
       <div className='flex flex-col gap-2'>
-        <div className='text-3xl text-white font-semibold'>My Experience</div>
-        <div className='text-white/80 leading-relaxed text-[15px]'>
+        <div className='font-secondary text-3xl font-medium text-black/80'>My Experience</div>
+        <div className='text-[15px] leading-relaxed text-black/70'>
           Experienced in developing scalable software solutions with expertise
           in full-stack development, cloud technologies, and system
           optimization.
@@ -103,12 +103,10 @@ const Experience = () => {
                   ? 'Present'
                   : formatDate(experience.endDate!)}
               </div>
-              <div className='text-white text-[15px]'>{experience.company}</div>
+              <div className=' text-[15px]'>{experience.company}</div>
               <div className='flex justify-between items-center'>
-                <div className='text-white/80 text-sm'>
-                  {experience.position}
-                </div>
-                <div className='text-white/80 text-sm flex items-center gap-2'>
+                <div className='text-sm text-black/70'>{experience.position}</div>
+                <div className='flex items-center gap-2 text-sm text-black/70'>
                   <span className='text-primary'>
                     <FaLocationDot />
                   </span>
@@ -125,9 +123,7 @@ const Experience = () => {
                     experience.description.map((desc, idx) => (
                       <div className='flex gap-2' key={idx}>
                         <span className='text-primary'>•</span>
-                        <p className='text-white/90 text-sm leading-relaxed'>
-                          {desc}
-                        </p>
+                        <p className='text-sm leading-relaxed text-black/70'>{desc}</p>
                       </div>
                     ))}
                 </div>
