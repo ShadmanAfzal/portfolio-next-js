@@ -14,7 +14,7 @@
 
   .site-background {
     position: relative;
-    background-color: #F3EEE3;
+    background-color: #f2e8da;
     background-image: radial-gradient(
       circle at 75% 35%,
       rgba(217, 84, 30, 0.08),
@@ -30,16 +30,31 @@
     pointer-events: none;
     background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
     background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(
+      ellipse at center,
+      black 30%,
+      transparent 75%
+    );
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
 
   @media (max-width: 640px) {
     .site-background::before {
-      background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+      background-image: radial-gradient(
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px
+      );
       background-size: 20px 20px;
-      -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 100%);
-      mask-image: radial-gradient(ellipse at center, black 45%, transparent 100%);
+      -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 45%,
+        transparent 100%
+      );
+      mask-image: radial-gradient(
+        ellipse at center,
+        black 45%,
+        transparent 100%
+      );
     }
   }
 

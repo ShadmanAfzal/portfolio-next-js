@@ -120,7 +120,7 @@ export default function Project() {
       }}
       className='py-4 lg:h-[calc(100svh-6rem)]'
     >
-      <div className='flex flex-col rounded-3xl border border-black/5 bg-card/60 p-4 shadow-sm sm:p-6 lg:h-full lg:p-6'>
+      <div className='flex flex-col rounded-3xl border border-black/5 bg-card p-4 shadow-sm sm:p-6 lg:h-full lg:p-6'>
         <div className='flex flex-1 flex-col items-center gap-5 lg:min-h-0 lg:flex-row lg:items-start lg:gap-8'>
           <div className='order-2 flex w-full flex-col gap-3 lg:order-1 lg:w-1/2'>
             <div className='flex items-center gap-3 text-sm font-medium uppercase tracking-[0.18em] text-primary/80'>
